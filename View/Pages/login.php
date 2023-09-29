@@ -35,6 +35,7 @@ session_start();
 
 
     <h1>FINALIZACION DE LOGIN</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, autem exercitationem. Aliquam aspernatur veniam expedita dignissimos voluptatem deleniti adipisci rerum, obcaecati, repellat excepturi temporibus quasi ipsa animi. Voluptas, architecto illum?</p>
 </body>
 
 </html>
