@@ -15,7 +15,7 @@
         <input type="text" name="apellido" placeholder="Apellido">
         <input type="email" name="email" placeholder="Correo electrónico">
         <input type="password" name="clave" placeholder="Contraseña">
-        <input type="submit" value="Inicar sesion">
+        <input type="submit" value="Registrarse">
 
         <p>¿Ya tiene cuenta? <a href="./login.php">Inicia Sesion</a></p>
     </form>

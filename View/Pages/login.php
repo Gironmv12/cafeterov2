@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 
 <body>
@@ -30,7 +30,7 @@ session_start();
     <form action="../../Controller/sesion.php" method="post">
         <input type="email" name="email" placeholder="Correo electrónico">
         <input type="password" name="clave"  placeholder="Contraseña">
-        <input type="submit" value="Registrarse">
+        <input type="submit" value="Iniciar sesion">
         <p>¿No estas registrado? <a href="./registroUsuarios.php">Registrate</a></p>
     </form>
 
