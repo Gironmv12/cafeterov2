@@ -27,7 +27,7 @@
         </div>
 
         <ul class="nav-list">
-            <li><a href="#">Menú</a></li>
+            <li><a href="./View/Pages/menu.php">Menú</a></li>
             <li><a href="#">Catálogo</a></li>
             <li><a href="#">Reseñas</a></li>
             <li><a href="#">Contacto</a></li>
