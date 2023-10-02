@@ -26,8 +26,8 @@ session_start();
         }
         ?>
 
-<h1>Login</h1>
-    <form action="" method="post">
+    <h1>Login</h1>
+    <form action="../../Controller/sesion.php" method="post">
         <input type="email" name="email" placeholder="Correo electrónico">
         <input type="password" name="clave" placeholder="Contraseña">
         <input type="submit" value="Registrarse">
