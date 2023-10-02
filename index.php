@@ -90,8 +90,7 @@
     </p>
 
     <!-- imagen inferior izquierda -->
-    <img src="View/images/logo-1.png" alt="Logo">
-
+    <img src="View/images/logo-index.png" alt="Logo">
 
 </body>
 
