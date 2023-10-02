@@ -1,7 +1,18 @@
+@font-face {
+    /* Fuente */
+    font-family: 'Subjectivity';
+    /* Ruta del archivo fuente */
+    src: url('../View/Fonts/Subjectivity-Light.otf') format('truetype');
+}
+
+body {
+    font-family: 'Subjectivity';
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: Subjectivity;
+    font-family: 'Subjectivity';
 }
 
 
@@ -19,6 +30,7 @@ body::before {
     z-index: -1;
 }
 
+/* Estilos body */
 body::after {
     content: '';
     position: fixed;
@@ -100,20 +112,84 @@ nav {
     margin-top: 14%
 }
 
-/* Estilos de iconos */
+/* Estilo de icono1 */
 .icon1 {
     margin-top: 12%;
     margin-left: 50%;
 }
 
-.icon2 {
-    margin-top: -1.6%;
-    margin-left: 40%;
+/* Transform icono 1 */
+.icon1 {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.5s ease;
+    /* Transición solo para el movimiento */
 }
 
+.icon1 a:hover svg path {
+    fill: #ffe57b30;
+    /* Cambiar el color del círculo en hover */
+}
+
+.icon1:hover {
+    transform: translateY(-10px);
+    /* Mover hacia arriba en hover */
+}
+
+/* Estilo de icono2 */
+.icon2 {
+    position: relative;
+    display: inline-block;
+    margin-top: -1.6%;
+    margin-left: -12%;
+}
+
+/* Transiciones de icono2 */
+.icon2 a:hover svg path {
+    fill: #00ff1a30;
+    /* Cambiar el color del círculo en hover */
+}
+
+.icon2 {
+    transition: transform 0.5s ease;
+    /* Transición solo para el movimiento */
+}
+
+.icon2:hover {
+    transform: translateY(-10px);
+    /* Mover hacia arriba en hover */
+}
+
+.icon2:not(:hover) {
+    transform: translateY(0);
+    /* Revertir la transformación cuando no está en hover */
+}
+
+/* Estilos icono3 */
 .icon3 {
     margin-top: -2.2%;
     margin-left: 60%;
+}
+
+/* Transiciones de icono3 */
+.icon3 a:hover svg path {
+    fill: #ff00003d;
+    /* Cambiar el color del círculo en hover */
+}
+
+.icon3 {
+    transition: transform 0.5s ease;
+    /* Transición solo para el movimiento */
+}
+
+.icon3:hover {
+    transform: translateY(-10px);
+    /* Mover hacia arriba en hover */
+}
+
+.icon3:not(:hover) {
+    transform: translateY(0);
+    /* Revertir la transformación cuando no está en hover */
 }
 
 /* Texto inferior derecho */
@@ -126,7 +202,7 @@ nav {
 
 /* imagen inferior izquierda */
 img {
-    margin-top: 10px;
+    margin-top: 1px;
     margin-left: 25px;
     height: 30px;
     width: 30px;
