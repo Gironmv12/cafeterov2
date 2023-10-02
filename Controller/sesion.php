@@ -1,52 +1,40 @@
 <?php
+session_start();
 
-include('../Model/conexionweb.php');
-$conn = conectarbd();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificar que se haya enviado un formulario POST
 
-$correo = $_POST["email"];
-$clave = $_POST["clave"];
+    // Incluir el archivo de conexión a la base de datos
+    include('../Model/conexionweb.php');
 
-// Validar correo electrónico
-if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-    header("Location: login.php?error=1");
-    exit();
-}
+    try {
+        // Obtener los datos del formulario
+        $email = $_POST["email"];
+        $clave = $_POST["clave"];
 
-// Validar contraseña
-if (strlen($clave) < 8) {
-    header("Location: login.php?error=2");
-    exit();
-}
+        // Consulta preparada para obtener el usuario por correo y clave
+        $conn = conectarbd();
+        $stmt = $conn->prepare("SELECT idUsuario FROM usuarios WHERE correo = :email AND clave = :clave");
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':clave', $clave);
+        $stmt->execute();
 
-// Hashear la contraseña
-$contrasena_hash = password_hash($clave, PASSWORD_DEFAULT);
+        // Verificar si se encontró un usuario
+        if ($stmt->rowCount() == 1) {
+            // Iniciar sesión al usuario
+            $_SESSION['email'] = $email;
+            $_SESSION['clave'] = $clave;
 
-// Consultar la base de datos
-$stmt = $conn->prepare("SELECT idUsuario, correo, clave FROM usuarios WHERE correo = :correo AND clave = :clave");
-$stmt->bindParam(":correo", $correo);
-$stmt->bindParam(":clave", $contrasena_hash);
-$stmt->execute();
-
-// Si el usuario existe, iniciar sesión
-if ($stmt->rowCount() > 0) {
-    $fila = $stmt->fetch();
-    $idUsuario = $fila["idUsuario"];
-    $correo = $fila["correo"];
-    $clave = $fila["clave"];
-
-    // Iniciar sesión
-    session_start();
-    $_SESSION["idUsuario"] = $idUsuario;
-    $_SESSION["correo"] = $correo;
-    $_SESSION["clave"] = $clave;
-
-    // Redireccionar a la página principal
-    header("Location: index.php");
-    exit();
-} else {
-    // Si el usuario no existe, mostrar un error
-    header("Location: login.php?error=3");
-    exit();
+            // Redireccionar al usuario a la página de inicio o a donde desees
+            header("Location: ../index.php");
+            exit();
+        } else {
+            // Si no se encontró un usuario, mostrar un mensaje de error
+            echo "Correo electrónico o contraseña incorrectos.";
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
 }
 
 ?>

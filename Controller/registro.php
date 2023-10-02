@@ -8,9 +8,6 @@ $apellido = $_POST['apellido'];
 $correo = $_POST['email'];
 $clave = $_POST['clave'];
 
-// Encriptamos la contraseña
-$contrasena_hash = password_hash($clave, PASSWORD_DEFAULT);
-
 // Preparamos una consulta
 $stmt = $conn->prepare("INSERT INTO usuarios(nombre, apellido, correo, clave) VALUES(:nombre, :apellido, :email, :clave)");
 
@@ -18,7 +15,7 @@ $stmt = $conn->prepare("INSERT INTO usuarios(nombre, apellido, correo, clave) VA
 $stmt->bindParam(":nombre", $nombre);
 $stmt->bindParam(":apellido", $apellido);
 $stmt->bindParam(":email", $correo);
-$stmt->bindParam(":clave", $contrasena_hash);
+$stmt->bindParam(":clave", $clave);
 
 // Ejecutamos la consulta
 $stmt->execute();

@@ -29,13 +29,10 @@ session_start();
     <h1>Login</h1>
     <form action="../../Controller/sesion.php" method="post">
         <input type="email" name="email" placeholder="Correo electrónico">
-        <input type="password" name="clave" placeholder="Contraseña">
+        <input type="password" name="clave"  placeholder="Contraseña">
         <input type="submit" value="Registrarse">
     </form>
 
-
-    <h1>FINALIZACION DE LOGIN</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, autem exercitationem. Aliquam aspernatur veniam expedita dignissimos voluptatem deleniti adipisci rerum, obcaecati, repellat excepturi temporibus quasi ipsa animi. Voluptas, architecto illum?</p>
 </body>
 
 </html>
