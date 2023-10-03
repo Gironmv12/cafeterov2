@@ -56,7 +56,7 @@ session_start();
                     </svg>
 
                 </a></li>
-            <li><a href="#">
+            <li><a href="../Pages/menu.php">
 
                     <svg width="25" height="25" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -65,7 +65,7 @@ session_start();
                     </svg>
 
                 </a></li>
-            <li><a href="#">
+            <li><a href="../Pages/reseñas.php">
 
                     <svg width="25" height="25" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

@@ -27,10 +27,10 @@
             <h1><a href="#">Café-tero</a></h1>
         </div>
 
-        <ul class="nav-list">
+        <ul class="nav-list">   
             <li><a href="./View/Pages/menu.php">Menú</a></li>
             <li><a href="#">Catálogo</a></li>
-            <li><a href="#">Reseñas</a></li>
+            <li><a href="./View/Pages/reseñas.php">Reseñas</a></li>
             <li><a href="#">Contacto</a></li>
         </ul>
     </nav>
