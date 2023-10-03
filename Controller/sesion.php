@@ -21,12 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verificar si se encontró un usuario
         if ($stmt->rowCount() == 1) {
-            // Iniciar sesión al usuario
-            $_SESSION['email'] = $email;
-            $_SESSION['clave'] = $clave;
+            $_SESSION['login_exitoso'] = true;
 
             // Redireccionar al usuario a la página de inicio o a donde desees
-            header("Location: ../index.php");
+            header("Location: ../View/Pages/menu.php");
             exit();
         } else {
             // Si no se encontró un usuario, mostrar un mensaje de error
