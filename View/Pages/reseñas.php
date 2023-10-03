@@ -26,7 +26,7 @@
             <img src="../images/logo-index.png" alt="Logo">
         </div>
         <ul class="sidebar-menu">
-            <li><a href="#">
+            <li><a href="../../index.php">
 
                     <svg width="25" height="25" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
