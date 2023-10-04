@@ -47,7 +47,7 @@
                     </svg>
 
                 </a></li>
-            <li><a href="#">
+            <li><a href="../Pages/reseñas.php">
 
                     <svg width="25" height="25" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -59,7 +59,7 @@
                     </svg>
 
                 </a></li>
-            <li><a href="#">
+            <li><a href="../Pages/contacto.php">
 
                     <svg width="25" height="25" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -143,9 +143,14 @@
                 <p id="info">¡Hola!, me llamo Efraín y mi ca fé favorito es el café Chiapaneco</p>
             </div>
         </div>
+        
+        <section>
+            <p id="text-q">¿Quieres ser nuestro cliente del mes?</p>
+            <p id="text-c">Contáctanos y cuéntanos tu <br>experiencia con nosotros para saber <br> como. !Esperamos tu mensaje!</p>
+        </section>
 
         <div class="image">
-            <img src="../images/Saludo-Giron.png" alt="">
+            <img src="../images/Saludo-Giron.png" alt="Saludo-Giron">
         </div>
 
     </sidebar>

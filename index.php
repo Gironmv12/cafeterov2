@@ -29,7 +29,6 @@
 
         <ul class="nav-list">   
             <li><a href="./View/Pages/menu.php">Menú</a></li>
-            <li><a href="#">Catálogo</a></li>
             <li><a href="./View/Pages/reseñas.php">Reseñas</a></li>
             <li><a href="#">Contacto</a></li>
         </ul>

@@ -255,6 +255,19 @@ input:hover {
     color: white;
 }
 
+/* Contenidos textuales */
+.cont-text p{
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.998);
+    margin-left: 11.5%;
+}
+
+.cont-text2 p{
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.998);
+    margin-left: 11.5%;
+}
+
 .container-2 {
     color: white;
     margin-left: 11%;
@@ -302,19 +315,6 @@ input:hover {
     margin-bottom: 2%;
 }
 
-/* Contenidos textuales */
-.cont-text p{
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.998);
-    margin-left: 11.5%;
-}
-
-.cont-text2 p{
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.998);
-    margin-left: 11.5%;
-}
-
 /* Estilos de arrito de compras */
 .product-card {
     background-color: #2D303E;
@@ -324,6 +324,18 @@ input:hover {
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     color: #fff;
+}
+
+.product-card{
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card:not(:hover) {
+    transform: translateY(0);
 }
 
 .inner-card {
