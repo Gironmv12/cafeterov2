@@ -16,7 +16,7 @@
 
     <!-- Título de la página -->
     <title>Café-tero</title>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 
 <body>
