@@ -300,3 +300,15 @@ body {
     height: 450px;
 }
 
+/* Texto contenido imagen */
+#text-estamos{
+    font-family: 'SubjectivitySerif-Light-Italic';
+    font-size: 12px;
+    margin-left: 11%;
+    color: white;
+}
+
+
+#text-estamos frame{
+    background-color: #2D303E;
+}

@@ -94,6 +94,8 @@
     </nav>
 
     <section>
+
+    <p id="text-estamos"> Estamos encantados de que desees ponerte en contacto con nosotros en Café-tero. Tu opinión, <br> preguntas y comentarios son de suma importancia para nosotros. Aquí te proporcionamos diversas <br> formas de comunicarte con nuestro equipo: </p>
         <img class="Avatar" src="../images/Avatar-principal.png" alt="Avatar-principal">
     </section>
 
