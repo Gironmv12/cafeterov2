@@ -18,6 +18,7 @@ function obtenerSaludo() {
 const saludoElement = document.getElementById("saludo");
 saludoElement.textContent = obtenerSaludo();
 
+
 /* Hora y fecha actual */
 
 // Obtén el elemento <p> con el id "fecha"

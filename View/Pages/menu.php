@@ -104,11 +104,10 @@ session_start();
     <!-- Barra de navegación superior -->
 
     <nav>
-        <div id="navbar">
-            <p id="saludo"></p>
-            <p id="texto">El café perfecto, siempre a tu alcance</p>
-        </div>
-
+    <div id="navbar">
+        <p id="saludo">saludo y fecha inhabilitado</p>
+        <p id="texto">El café perfecto, siempre a tu alcance</p>
+    </div>
         <div class="group">
             <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                 <g>
@@ -145,9 +144,9 @@ session_start();
 
     <!-- Contenido -->
     <section>
-    <div class="container-3">
+        <div class="container-3">
             <div class="product-card">
-            <?php 
+                <?php
                     include("./Model/conexionweb.php");
                     $rutaImagen = "data:image/png;base64, ";
 
@@ -155,44 +154,42 @@ session_start();
                     $resultado = $conexion->query($query);
                     foreach($resultado as $row){
                         ?>
-                        <div class="inner-card">
-                            <div class="product-image-container">
-                            
-                                <img class="product-image" src="<?php echo $rutaImagen . base64_encode($row['image']); ?>"
-                                    alt="Café Gourmet Chiapas Arábica">
-                            </div>
+                <div class="inner-card">
+                    <div class="product-image-container">
 
-                            <div class="product-description">
-                                <p id="descript"><?php echo $row['nombre']; ?></p>
-                                <p><?php echo $row['descripcion']; ?></p>
+                        <img class="product-image" src="<?php echo $rutaImagen . base64_encode($row['image']); ?>"
+                            alt="Café Gourmet Chiapas Arábica">
+                    </div>
+
+                    <div class="product-description">
+                        <p id="descript"><?php echo $row['nombre']; ?></p>
+                        <p><?php echo $row['descripcion']; ?></p>
+                    </div>
+
+                    <div class="product-price">
+                        <p>$<?php echo $row['precio']; ?></p>
+                        <button class="button">
+                            <div class="cart-icon">
+                                <!-- Icono SVG de carrito de compras -->
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.6875 2.25H2.72676C3.10903 2.25 3.44353 2.50699 3.54203 2.87635L3.82942 3.95407M5.625 10.6875C4.38236 10.6875 3.375 11.6949 3.375 12.9375H15.1875M5.625 10.6875H14.0387C14.8795 8.96202 15.6133 7.17476 16.2313 5.33438C12.66 4.42234 8.91789 3.9375 5.0625 3.9375C4.65015 3.9375 4.23911 3.94305 3.82942 3.95407M5.625 10.6875L3.82942 3.95407M4.5 15.1875C4.5 15.4982 4.24816 15.75 3.9375 15.75C3.62684 15.75 3.375 15.4982 3.375 15.1875C3.375 14.8768 3.62684 14.625 3.9375 14.625C4.24816 14.625 4.5 14.8768 4.5 15.1875ZM14.0625 15.1875C14.0625 15.4982 13.8107 15.75 13.5 15.75C13.1893 15.75 12.9375 15.4982 12.9375 15.1875C12.9375 14.8768 13.1893 14.625 13.5 14.625C13.8107 14.625 14.0625 14.8768 14.0625 15.1875Z"
+                                        stroke="#2EC76D" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
-                            
-                            <div class="product-price">
-                                <p>$<?php echo $row['precio']; ?></p>
-                                <button class="button">
-                                    <div class="cart-icon">
-                                        <!-- Icono SVG de carrito de compras -->
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M1.6875 2.25H2.72676C3.10903 2.25 3.44353 2.50699 3.54203 2.87635L3.82942 3.95407M5.625 10.6875C4.38236 10.6875 3.375 11.6949 3.375 12.9375H15.1875M5.625 10.6875H14.0387C14.8795 8.96202 15.6133 7.17476 16.2313 5.33438C12.66 4.42234 8.91789 3.9375 5.0625 3.9375C4.65015 3.9375 4.23911 3.94305 3.82942 3.95407M5.625 10.6875L3.82942 3.95407M4.5 15.1875C4.5 15.4982 4.24816 15.75 3.9375 15.75C3.62684 15.75 3.375 15.4982 3.375 15.1875C3.375 14.8768 3.62684 14.625 3.9375 14.625C4.24816 14.625 4.5 14.8768 4.5 15.1875ZM14.0625 15.1875C14.0625 15.4982 13.8107 15.75 13.5 15.75C13.1893 15.75 12.9375 15.4982 12.9375 15.1875C12.9375 14.8768 13.1893 14.625 13.5 14.625C13.8107 14.625 14.0625 14.8768 14.0625 15.1875Z"
-                                                stroke="#2EC76D" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                        <?php
+                        </button>
+                    </div>
+                </div>
+                <?php
                     }
                 ?>
             </div>
     </section>
 
-    
-
     <!-- Script js funcionalidades -->
-    <script src="../app/menu.js"></script>
+    <script src="../../View/app/menu.js"></script>
 </body>
 
 </html>

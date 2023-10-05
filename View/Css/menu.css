@@ -143,6 +143,7 @@ body {
 }
 
 #saludo {
+    color: white;
     font-size: 20px;
     margin-top: 5px;
     margin-left: 10%;
@@ -163,6 +164,18 @@ body {
     max-width: 300px;
     margin-left: 30%;
     margin-top: -6%;
+}
+
+.group{
+    transition: transform 0.5s ease;
+}
+
+.group:hover{
+    transform: translateY(-2px);
+}
+
+.group:not(:hover){
+    transform: translateY(0);
 }
 
 .input {
@@ -225,7 +238,7 @@ input:hover {
     font-size: 13px;
 }
 
-/* Clases */
+/* Tipos de café */
 .container img {
     margin-top: 50px;
     border-radius: 50%;
@@ -255,23 +268,7 @@ input:hover {
     color: white;
 }
 
-/* Contenidos textuales */
-.cont-text p{
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.998);
-    margin-left: 11.5%;
-}
-
-.cont-text2 p{
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.998);
-    margin-left: 11.5%;
-}
-
-.container-2 {
-    color: white;
-    margin-left: 11%;
-}
+/* Cards productos */
 
 /* Contenedores de cards */
 .container-3 {
@@ -318,7 +315,7 @@ input:hover {
 /* Estilos de arrito de compras */
 .product-card {
     background-color: #2D303E;
-    width: 230px;
+    width: 230px; 
     /* Tamaño mediano del card */
     padding: 20px;
     border-radius: 6px;
@@ -412,3 +409,4 @@ input:hover {
     margin-right: 5px; /* Espaciado a la derecha del icono */
     margin-left: 5px;
 }
+
