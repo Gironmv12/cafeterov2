@@ -11,7 +11,8 @@
 
 @font-face {
     font-family: 'SubjectivitySerif-Thin-Italic';
-    src: url('../Fonts/SubjectivitySerif-Thin-Italic.otf') format('truetype');;
+    src: url('../Fonts/SubjectivitySerif-Thin-Italic.otf') format('truetype');
+    ;
 }
 
 /* Estilos y diseño de Scroll */
@@ -41,262 +42,174 @@ body {
     padding: 0;
 }
 
+ul li {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Principal */
 
-.principal {
+.app {
     display: grid;
-    grid-template-columns: 0.2fr 1fr 0.5fr;
+    grid-template-columns: 10% 60% 30%;
     grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
+}
 
 /* - - - - - - - - - -*/
 
-/* sidebar iquierdo */
+/* Maquetado Principal */
 
-.sidebar1{
+.sidebar {
     width: 100%;
     height: 100vh;
     background-color: #252836;
 }
 
-/* - - - - - - - - */
-
-/* Estilos sibdebar izquierdo */
-
-/* Configuraciones del logo */
-.logo {
-    padding: 10px;
-    text-align: center;
-}
-
-.logo img {
-    max-width: 50px;
-    height: auto;
-    margin-bottom: 10px;
-    margin-top: 1px;
-}
-
-/* Configuraciones del menú del sidebar */
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Centra verticalmente los íconos */
-    align-items: center;
-    margin-top: -1px;
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar-menu a {
-    text-decoration: none;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    font-weight: lighter;
-    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-    padding: 10px;
-    border-radius: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 5px;
-}
-
-.sidebar-menu a i {
-    margin-right: 30px;
-    transition: transform 0.2s, color 0.3s;
-}
-
-.sidebar-menu a:hover {
-    background-color: #A9957D;
-    transform: translateY(-2px);
-}
-
-.sidebar-menu a:hover i {
-    color: #A9957D;
-}
-
-/* Estilos del footer del sidebar */
-.sidebar-footer {
-    margin-left: 45px;
-    position: absolute;
-    bottom: 45px;
-    left: 20px;
-}
-
-.sidebar-footer a {
-    text-decoration: none;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    font-weight: lighter;
-}
-
-.sidebar-footer a i {
-    margin-right: 20px;
-    margin-left: 15px;
-}
-
-/* - - - - - - - - - - - - - -*/
-
-/* menu */
-
-.menu{
+.menu {
     width: 100%;
     height: 100vh;
     background-color: #1F1D2B;
 }
 
-/* - - - - - - - - */
-
-/* Estilos navbar */
-#navbar {
-    margin-top: -8px;
-    color: #fff;
-    padding: 20px;
-
-}
-
-#saludo {
-    color: white;
-    font-size: 20px;
-    margin-top: 5px;
-    margin-left: 1%;
-}
-
-#texto {
-    margin-top: 1.5%;
-    font-size: 10px;
-    margin-left: 1%;
-}
-
-/* buscador */
-.group {
-    display: flex;
-    line-height: 28px;
-    align-items: center;
-    position: relative;
-    max-width: 300px;
-    margin-left: 30%;
-    margin-top: -9%;
-}
-
-.group{
-    transition: transform 0.5s ease;
-}
-
-.group:hover{
-    transform: translateY(-2px);
-}
-
-.group:not(:hover){
-    transform: translateY(0);
-}
-
-.input {
-    width: 100%;
-    height: 40px;
-    line-height: 28px;
-    padding: 0 1rem;
-    padding-left: 2.5rem;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    outline: none;
-    background-color: #2D303E;
-    color: #13220c;
-    transition: .3s ease;
-}
-
-.input::placeholder {
-    color: #9e9ea7;
-}
-
-.input:focus,
-input:hover {
-    outline: none;
-    border-color: rgb(20, 136, 186);
-    background-color: #ffffff;
-    box-shadow: 0 0 0 4px rgb(20, 136, 186 / 10%);
-}
-
-.icon {
-    position: absolute;
-    left: 1rem;
-    fill: #9e9ea7;
-    width: 1rem;
-    height: 1rem;
-}
-
-/* - - - - - - - -*/
-
-/* Contenido redirigibles clases de café */
-
-/* Tipos de café */
-
-.container{
-    margin-left: -10%;
-}
-.container img {
-    margin-top: 50px;
-    border-radius: 50%;
-    background-color: #252836;
-    margin-left: 11%;
-    margin-right: -9%;
-}
-
-#texto-t {
-    margin-top: 2px;
-    font-size: 12px;
-    margin-left: 3.7%;
-    color: white;
-}
-
-#texto-c {
-    margin-top: -22px;
-    font-size: 11px;
-    margin-left: 10.5%;
-    color: white;
-}
-
-#texto-r {
-    margin-top: -22px;
-    font-size: 11px;
-    margin-left: 20%;
-    color: white;
-}
-
-/* - - - - - - - - - - - - - - - - - - - */
-
-/* sidebar iquierdo (carrito) */
-
-.carrito{
+.carrito {
     width: 100%;
     height: 100vh;
     background-color: #252836;
 }
 
-/* - - - - - - - - - - - - - - - - - - - */
-
-/* Estilos sidebar izquierdo (carrito) */
-
-/* Estilos del sidebar 2 */
-
-.sidebar2 p {
-    color: white;
-    margin-top: 20px;
-    font-size: 24px;
-    margin-left: 10px
+/* estilos sidebar */
+.sidebar .logo {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#fecha {
-    margin-top: -15px;
-    color: #828283;
-    font-size: 13px;
+.sidebar .logo img {
+    width: 50px;
 }
 
-/* - - - - - - - - - - - - - - - - - - */
+.sidebar .opciones {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.sidebar .opciones ul {
+    list-style-type: none;
+    padding: 0;
+}
 
+.sidebar .opciones li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
 
+.sidebar .opciones li a {
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.sidebar .opciones li a:hover{
+    background-color: #A9957D;
+}
+
+/* estilos Menu */
+
+.menu .barra_nav{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.menu .productos{
+    width: auto;
+    height: auto;
+}
+
+.menu .productos .categoria{
+    width: auto;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.menu .productos .categoria .card{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    margin-right: 10px;
+}
+
+/* Estilos Menu */
+.lista-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px; /* Espacio alrededor de la lista de productos */
+    background-color: #fff;
+}
+
+/* Estilos para cada producto */
+.inner-card {
+    width: calc(33.33% - 20px); /* Esto hace que cada producto ocupe aproximadamente un tercio del ancho de la lista de productos, con un espacio de 20px entre ellos */
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /* Color de fondo de cada producto */
+    padding: 10px; /* Espacio interno dentro de cada producto */
+    border: 1px solid #ddd; /* Borde alrededor de cada producto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para cada producto */
+}
+
+/* Estilos para la imagen del producto */
+.product-image {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Evita que la imagen cause problemas de alineación */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+/* Estilos para la descripción del producto */
+.product-description {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Estilos para el precio del producto */
+.product-price {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #e44d26; /* Color del precio */
+}
+
+/* Estilos para el botón "Comprar" */
+.button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e44d26; /* Color del botón */
+    color: #fff; /* Color del texto del botón */
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Efecto de transición en el color de fondo del botón */
+}
+
+.button:hover {
+    background-color: #c4391f; /* Cambia el color de fondo cuando se pasa el ratón por encima */
+}

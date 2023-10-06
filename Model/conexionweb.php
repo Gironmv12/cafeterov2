@@ -1,4 +1,5 @@
 <?php
+global $conexion;
 //conexionweb.php
 $servidor = "localhost";
 $usuario = "root";
@@ -10,6 +11,8 @@ $conexion = mysqli_connect($servidor, $usuario, $password,$db);
 /*if($conexion){
     echo "conexion establecida";
 }else{
-    echo "no se conecto a la base de datos";
+    echo "no se conecto a la base de datos". mysqli_connect_error();
 }*/
+
+mysqli_set_charset($conexion, "utf8");
 ?>
