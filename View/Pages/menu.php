@@ -136,6 +136,10 @@ session_start();
 
                     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga suscipit nihil provident assumenda dolorum rerum tempore modi dolores eligendi, repudiandae facere nulla in? Illum doloremque cumque dolore, optio vero porro!</p>
 
+                    <p>voy a agregar este otro lorem by GIRON</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis laboriosam recusandae doloremque enim harum corporis laborum veritatis officiis iure facere maiores cumque est debitis, exercitationem minima tenetur libero hic aspernatur?</p>
+                </div>
+
                     
 
                 </div>
