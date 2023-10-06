@@ -132,7 +132,9 @@ session_start();
                         </div>
                     </nav>
 
-                    <!-- Código php -->
+                    <!-- Código php AGREGUÉ ESTE LOREM!!! 06/10/23 11:12AM. -->
+
+                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga suscipit nihil provident assumenda dolorum rerum tempore modi dolores eligendi, repudiandae facere nulla in? Illum doloremque cumque dolore, optio vero porro!</p>
 
                     
 
