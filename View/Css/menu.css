@@ -37,21 +37,33 @@ html {
 
 body {
     font-family: 'Subjectivity-Regular';
-    background-color: #1F1D2B;
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilos del sidebar */
-.sidebar {
+/* Principal */
+
+.principal {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+/* - - - - - - - - - -*/
+
+/* sidebar iquierdo */
+
+.sidebar1{
+    width: 100%;
+    height: 100vh;
     background-color: #252836;
-    color: #fff;
-    width: 150px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    transition: width 0.3s ease;
 }
+
+/* - - - - - - - - */
+
+/* Estilos sibdebar izquierdo */
 
 /* Configuraciones del logo */
 .logo {
@@ -64,12 +76,6 @@ body {
     height: auto;
     margin-bottom: 10px;
     margin-top: 1px;
-}
-
-.logo p {
-    font-weight: lighter;
-    font-size: 18px;
-    margin-top: -10px;
 }
 
 /* Configuraciones del menú del sidebar */
@@ -133,9 +139,20 @@ body {
     margin-left: 15px;
 }
 
+/* - - - - - - - - - - - - - -*/
+
+/* menu */
+
+.menu{
+    width: 100%;
+    height: 100vh;
+    background-color: #1F1D2B;
+}
+
+/* - - - - - - - - */
+
 /* Estilos navbar */
 #navbar {
-    background-color: #1F1D2B;
     margin-top: -8px;
     color: #fff;
     padding: 20px;
@@ -146,13 +163,13 @@ body {
     color: white;
     font-size: 20px;
     margin-top: 5px;
-    margin-left: 10%;
+    margin-left: 1%;
 }
 
 #texto {
     margin-top: 1.5%;
     font-size: 10px;
-    margin-left: 10%;
+    margin-left: 1%;
 }
 
 /* buscador */
@@ -163,7 +180,7 @@ body {
     position: relative;
     max-width: 300px;
     margin-left: 30%;
-    margin-top: -6%;
+    margin-top: -9%;
 }
 
 .group{
@@ -212,33 +229,15 @@ input:hover {
     height: 1rem;
 }
 
-/* Estilos del sidebar 2 */
-.sidebar-2 {
-    background-color: #252836;
-    color: #fff;
-    margin-left: 71%;
-    width: 450px;
-    height: 200%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    transition: width 0.3s ease;
-}
+/* - - - - - - - -*/
 
-.sidebar-2 p {
-    margin-top: 20px;
-    font-size: 24px;
-    margin-left: 10px
-}
-
-#fecha {
-    margin-top: -15px;
-    color: #828283;
-    font-size: 13px;
-}
+/* Contenido redirigibles clases de café */
 
 /* Tipos de café */
+
+.container{
+    margin-left: -10%;
+}
 .container img {
     margin-top: 50px;
     border-radius: 50%;
@@ -250,163 +249,54 @@ input:hover {
 #texto-t {
     margin-top: 2px;
     font-size: 12px;
-    margin-left: 11.7%;
+    margin-left: 3.7%;
     color: white;
 }
 
 #texto-c {
     margin-top: -22px;
     font-size: 11px;
-    margin-left: 16.8%;
+    margin-left: 10.5%;
     color: white;
 }
 
 #texto-r {
     margin-top: -22px;
     font-size: 11px;
-    margin-left: 23%;
+    margin-left: 20%;
     color: white;
 }
 
-/* Cards productos */
+/* - - - - - - - - - - - - - - - - - - - */
 
-/* Contenedores de cards */
-.container-3 {
-    margin-left: 11%;
-    margin-top: -10px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 32%; 
+/* sidebar iquierdo (carrito) */
+
+.carrito{
+    width: 100%;
+    height: 100vh;
+    background-color: #252836;
 }
 
-.container-4 {
-    margin-left: 11%;
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 32%;
-}
+/* - - - - - - - - - - - - - - - - - - - */
 
-.container-5 {
-    margin-left: 11%;
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 32%;
-}
+/* Estilos sidebar izquierdo (carrito) */
 
-.container-6 {
-    margin-left: 11%;
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 32%;
-}
+/* Estilos del sidebar 2 */
 
-.container-7 {
-    margin-left: 11%;
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 32%;
-    margin-bottom: 2%;
-}
-
-/* Estilos de arrito de compras */
-.product-card {
-    background-color: #2D303E;
-    width: 230px; 
-    /* Tamaño mediano del card */
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    color: #fff;
-}
-
-.product-card{
-    transition: transform 0.5s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-}
-
-.product-card:not(:hover) {
-    transform: translateY(0);
-}
-
-.inner-card {
-    background-color: #2D303E;
-    padding: 10px;
-    border-radius: 6px;
-    margin-top: 5px;
-}
-
-.product-image-container {
-    margin-top: -10px;
-    border-radius: 6px;
-    background-color: #1F1D2B;
-    /* Color de fondo para la imagen */
-    text-align: center;
-    /* Centrar contenido horizontalmente */
-}
-
-.product-image {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
-    /* Para centrar verticalmente */
-    margin: -3px auto;
-    /* Centrar verticalmente */
-}
-
-.product-description {
-    font-family: 'SubjectivitySerif-Thin-Italic';
-    text-align: justify;
-    font-size: 12px;
-    margin-top: 10px;
-}
-
-.product-price {
-    font-family: 'SubjectivitySerif-Light-Italic';
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.buy-icon {
-    float: right;
+.sidebar2 p {
+    color: white;
+    margin-top: 20px;
     font-size: 24px;
-    margin-top: 10px;
-    cursor: pointer;
-    margin-bottom: 30%;
+    margin-left: 10px
 }
 
-#descript{
-    font-family: 'SubjectivitySerif-Light-Italic';
+#fecha {
+    margin-top: -15px;
+    color: #828283;
+    font-size: 13px;
 }
 
-/* Boton de compra */
-.button {
-    background-color: #2C4844; /* Color de fondo del botón */
-    border: none;
-    padding: 5px; /* Espaciado interno del botón */
-    border-radius: 5px; /* Borde redondeado */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    width: 50px;
-    margin-left: 75%;
-    margin-top: -12%;
-}
+/* - - - - - - - - - - - - - - - - - - */
 
-.cart-icon svg {
-    margin-top: -5px;
-    margin-bottom: -5px;
-    width: 18px; /* Tamaño del icono */
-    height: 18px; /* Tamaño del icono */
-    margin-right: 5px; /* Espaciado a la derecha del icono */
-    margin-left: 5px;
-}
+
 
