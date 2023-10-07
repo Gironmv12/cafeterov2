@@ -1,8 +1,12 @@
 // Función para obtener el saludo según la hora
 function obtenerSaludo() {
+    // Obtener la hora actual
     const horaActual = new Date().getHours();
+
+    // Inicializar una variable para el saludo
     let saludo = "";
 
+    // Comprobar la hora actual y asignar un saludo adecuado
     if (horaActual >= 0 && horaActual < 12) {
         saludo = "Buenos días";
     } else if (horaActual >= 12 && horaActual < 20) {
@@ -11,15 +15,20 @@ function obtenerSaludo() {
         saludo = "Buenas noches";
     }
 
+    // Devolver el saludo
     return saludo;
 }
 
 // Actualizar el texto en el Navbar con el saludo
 const saludoElement = document.getElementById("saludo");
+
+// Llamar a la función obtenerSaludo() y asignar el resultado al elemento saludo
 saludoElement.textContent = obtenerSaludo();
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
-/* Hora y fecha actual */
+
+// Hora y fecha actual //
 
 // Obtén el elemento <p> con el id "fecha"
 var fechaElement = document.getElementById("fecha");

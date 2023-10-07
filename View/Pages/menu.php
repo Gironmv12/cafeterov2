@@ -51,7 +51,7 @@ session_start();
             <div class="opciones">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a class="icon" href="#">
                             <svg width="25" height="25" viewBox="0 0 28 26" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -64,7 +64,7 @@ session_start();
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a class="icon" href="#">
                             <svg width="25" height="25" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -74,7 +74,7 @@ session_start();
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a class="icon" href="#">
                             <svg width="25" height="25" viewBox="0 0 28 26" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -87,7 +87,7 @@ session_start();
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a class="icon" href="#">
                             <svg width="25" height="25" viewBox="0 0 22 27" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -108,7 +108,7 @@ session_start();
             <div class="barra_nav">
                 <!-- Header -->
                 <div>
-                    <h2>Buenos dias</h2>
+                    <h2 id="saludo"></h2>
                 </div>
                 <div>
                     <label for="second-search-input">Search:</label>
@@ -123,32 +123,38 @@ session_start();
                 <div class="categoria">
                     <div class="card card-todos">
                         <!-- imagen -->
+                        <a href="#"> <img src="../images/produccion-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Todos</p>
                     </div>
                     <div class="card card-tradicional">
                         <!-- imagen -->
+                        <a href="#"> <img src="../images/grano-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Tradicional</p>
                     </div>
                     <div class="card card-gourmet">
                         <!-- imagen -->
+                        <a href="#"> <img src="../images/bolsa-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Gorumet</p>
                     </div>
                     <div class="card card-supermo">
                         <!-- imagen -->
+                        <a href="#"> <img src="../images/paquete-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Supremo</p>
                     </div>
                     <div class="card card-descafeinado">
                         <!-- imagen -->
+                        <a href="#"> <img src="../images/bolsita2de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Descafeinado</p>
                     </div>
                 </div>
 
                 <div class="lista-productos" id="productos-container">
+                    <p> Más solicitados</p>
                     <!-- Aquí se mostrarán los productos dinámicamente -->
 
                 </div>
@@ -157,6 +163,11 @@ session_start();
             </div>
         </div>
         <div class="carrito">
+
+        <div class="descripcion">
+            <p class="orden">Orden actual</p>
+            <p id="fecha">Fecha:</p>
+        </div>
 
         </div>
 
