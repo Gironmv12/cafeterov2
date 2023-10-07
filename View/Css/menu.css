@@ -293,25 +293,25 @@ input:hover {
     background-color: #1F1D2B;
 }
 
-.lista-productos p {
-    margin-top: 1px;
-    color: white;
+.descripcion {
+    color: rgb(255, 255, 255);
 }
-
 
 /* Estilos para cada producto */
 .inner-card {
-    width: calc(33.33% - 20px);
+    width: calc(25% - -30px);
     /* Esto hace que cada producto ocupe aproximadamente un tercio del ancho de la lista de productos, con un espacio de 20px entre ellos */
     margin-bottom: 20px;
-    background-color: #f9f9f9;
+    border-radius: 5px;
+    background-color: #2D303E;
     /* Color de fondo de cada producto */
     padding: 10px;
     /* Espacio interno dentro de cada producto */
-    border: 1px solid #ddd;
+    border: 1px solid #2D303E;
     /* Borde alrededor de cada producto */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Sombra para cada producto */
+    color: #ffffff;
 }
 
 /* Estilos para la imagen del producto */
@@ -327,7 +327,7 @@ input:hover {
 /* Estilos para la descripción del producto */
 .product-description {
     margin-top: 10px;
-    font-weight: bold;
+    font-weight:lighter;
 }
 
 /* Estilos para el precio del producto */
@@ -343,7 +343,7 @@ input:hover {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e44d26;
+    background-color: #2C4844;
     /* Color del botón */
     color: #fff;
     /* Color del texto del botón */
@@ -355,7 +355,7 @@ input:hover {
 }
 
 .button:hover {
-    background-color: #c4391f;
+    background-color: rgb(55, 107, 59);
     /* Cambia el color de fondo cuando se pasa el ratón por encima */
 }
 

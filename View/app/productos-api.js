@@ -10,13 +10,14 @@ $(document).ready(function () {
                 var productosContainer = $('#productos-container');
                 $.each(data.items, function (index, producto) {
                     var cardHTML = `
-                        <div class="card">
-                            <h2>${producto.nombre}</h2>
-                            <img src="data:image/jpeg;base64,${producto.image}" alt="${producto.nombre}">
-                            <p>${producto.descripcion}</p>
-                            <p>${producto.precio} $</p>
-                        </div>
-                    `;
+                    <div class="inner-card">
+                        <img src="data:image/jpeg;base64,${producto.image}" alt="${producto.nombre}" class="product-image">
+                        <h2 class="product-description">${producto.nombre}</h2>
+                        <p class="product-description">${producto.descripcion}</p>
+                        <p class="product-price">${producto.precio} $</p>
+                        <button class="button">Comprar</button>
+                    </div>
+                `;
                     productosContainer.append(cardHTML);
                 });
             } else {
