@@ -21,7 +21,7 @@ session_start();
     <!-- Título de la página -->
     <title>Menu</title>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <?php
         if (isset($_SESSION['login_exitoso']) && $_SESSION['login_exitoso']) {
             // Muestra una alerta de éxito
@@ -184,8 +184,8 @@ session_start();
 
     </div>
     <!-- Script js funcionalidades -->
+    <script src="../app/productos-api.js"></script>
     <script src="../app/menu.js"></script>
-    <script src="../app/consumo.js"></script>
 
 </body>
 

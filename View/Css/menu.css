@@ -298,6 +298,7 @@ input:hover {
     color: white;
 }
 
+
 /* Estilos para cada producto */
 .inner-card {
     width: calc(33.33% - 20px);
@@ -357,3 +358,4 @@ input:hover {
     background-color: #c4391f;
     /* Cambia el color de fondo cuando se pasa el ratón por encima */
 }
+
