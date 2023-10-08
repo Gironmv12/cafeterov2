@@ -331,7 +331,7 @@ input:hover {
 .product-image {
     background-color: #1F1D2B;
     border-radius: 6px;
-    max-width: 90%;
+    max-width: 60%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -355,9 +355,8 @@ input:hover {
 /* Estilos para el precio del producto */
 .product-price {
     font-weight: lighter;
-    font-size: 16px;
-    margin-top: 10px;
     font-size: 18px;
+    margin-top: 10px;
     color: #EDD4B5;
     /* Color del precio */
 }

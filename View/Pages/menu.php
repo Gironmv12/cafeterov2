@@ -123,7 +123,7 @@ session_start();
                 </div>
 
                 <div>
-                    <a href="" class="btn_login">Login</a>
+                    <a href="../Pages/login.php" class="btn_login">Login</a>
                 </div>
             </div>
 

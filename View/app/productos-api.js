@@ -26,7 +26,8 @@ $(document).ready(function () {
                     });
                 } else {
                     // Manejo de caso en el que no hay resultados de búsqueda
-                    $('#productos-container').html('No se encontraron productos.');
+                    var imagenError = `<img src="../images/error404.png" alt="Error 404" class="product-image">`;
+                $('#productos-container').html(imagenError);
                 }
             },
             error: function () {
