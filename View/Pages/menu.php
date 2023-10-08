@@ -19,7 +19,10 @@ session_start();
     <title>Menu</title>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <?php
+</head>
+
+<body>
+<?php
         if (isset($_SESSION['login_exitoso']) && $_SESSION['login_exitoso']) {
             // Muestra una alerta de éxito
             echo '<script>
@@ -32,9 +35,6 @@ session_start();
             unset($_SESSION['login_exitoso']); // Limpia la variable de sesión
         }
     ?>
-</head>
-
-<body>
 
     <div class="app">
 
@@ -118,7 +118,7 @@ session_start();
                                 </path>
                             </g>
                         </svg>
-                        <input placeholder="Buscar en el menú" type="search" class="input">
+                        <input placeholder="Buscar en el menú" type="search" class="input" id="busqueda-input">
                     </div>
                 </div>
 
@@ -167,10 +167,6 @@ session_start();
                     <!-- Aquí se mostrarán los productos dinámicamente -->
 
                 </div>
-
-                
-
-
             </div>
         </div>
         <div class="carrito">
