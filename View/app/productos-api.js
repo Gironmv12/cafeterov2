@@ -13,9 +13,9 @@ $(document).ready(function () {
                     <div class="inner-card">
                         <img src="data:image/jpeg;base64,${producto.image}" alt="${producto.nombre}" class="product-image">
                         <h2 class="product-description">${producto.nombre}</h2>
-                        <p class="product-description">${producto.descripcion}</p>
+                        <p class="product-description2">${producto.descripcion}</p>
                         <p class="product-price">${producto.precio} $</p>
-                        <button class="button">Comprar</button>
+                        <button class="button"></button>
                     </div>
                 `;
                     productosContainer.append(cardHTML);

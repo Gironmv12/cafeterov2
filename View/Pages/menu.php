@@ -9,9 +9,6 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Link de heroicons -->
-    <link href="https://cdn.jsdelivr.net/npm/heroicons@1.0.1/dist/heroicons.min.css" rel="stylesheet">
-
     <!-- icono de la página -->
     <link rel="icon" href="../images/icono.png" type="png">
 
@@ -164,12 +161,14 @@ session_start();
                     </div>
                 </div>
 
-                <p class="descripcion"> Más solicitados</p>
-
+                <p class="texto"> Más solicitados</p>
+                
                 <div class="lista-productos" id="productos-container">
                     <!-- Aquí se mostrarán los productos dinámicamente -->
 
                 </div>
+
+                
 
 
             </div>
