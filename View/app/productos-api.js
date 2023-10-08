@@ -5,7 +5,9 @@ $(document).ready(function () {
             url: '../../Controller/apis/resApiProductos.php',
             type: 'GET',
             dataType: 'json',
-            data: { query: consulta }, // Envía la consulta como parámetro
+            data: {
+                query: consulta
+            }, // Envía la consulta como parámetro
             success: function (data) {
                 if (data.items && data.items.length > 0) {
                     // Recorre los datos y crea una tarjeta para cada producto
@@ -26,8 +28,9 @@ $(document).ready(function () {
                     });
                 } else {
                     // Manejo de caso en el que no hay resultados de búsqueda
-                    var imagenError = `<img src="../images/error404.png" alt="Error 404" class="product-image">`;
-                $('#productos-container').html(imagenError);
+                    var imagenError = `<img src="../images/error404.png" alt="Error 404" class="product-image404"> 
+                    <p class="text-error">El café que buscas está de camino. ¡Vuelve Pronto!</p>`;
+                    $('#productos-container').html(imagenError);
                 }
             },
             error: function () {
@@ -46,4 +49,3 @@ $(document).ready(function () {
     // Carga todos los productos al inicio
     buscarProductos('');
 });
-

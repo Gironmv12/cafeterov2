@@ -383,3 +383,19 @@ input:hover {
 .button:hover {
     background-color: rgba(55, 107, 59, 0.124);
 }
+
+/* Imagen error 404 */
+.product-image404{
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: -100px;
+}
+
+.text-error{
+    margin-left: 27%;
+    margin-top: -75px;
+    color: white;
+}
+

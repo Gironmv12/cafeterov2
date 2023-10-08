@@ -7,7 +7,9 @@ function obtenerSaludo() {
     let saludo = "";
 
     // Comprobar la hora actual y asignar un saludo adecuado
-    if (horaActual >= 0 && horaActual < 12) {
+    if (horaActual >= 0 && horaActual < 7) {
+        saludo = "¿Madrugando?";
+    } else if (horaActual >= 7 && horaActual < 12) {
         saludo = "Buenos días";
     } else if (horaActual >= 12 && horaActual < 20) {
         saludo = "Buenas tardes";
@@ -19,13 +21,10 @@ function obtenerSaludo() {
     return saludo;
 }
 
-// Actualizar el texto en el Navbar con el saludo
+// Resto del código (sin cambios)
 const saludoElement = document.getElementById("saludo");
-
-// Llamar a la función obtenerSaludo() y asignar el resultado al elemento saludo
 saludoElement.textContent = obtenerSaludo();
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 
 // Hora y fecha actual //
