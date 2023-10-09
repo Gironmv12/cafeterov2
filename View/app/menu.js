@@ -25,8 +25,6 @@ function obtenerSaludo() {
 const saludoElement = document.getElementById("saludo");
 saludoElement.textContent = obtenerSaludo();
 
-
-
 // Hora y fecha actual //
 
 // Obtén el elemento <p> con el id "fecha"
@@ -66,3 +64,16 @@ mostrarFechaYHoraActual();
 
 // Actualiza la fecha y la hora cada segundo (1000 milisegundos)
 setInterval(mostrarFechaYHoraActual, 1000);
+
+//Color de hover iconos activos (a) 
+
+$(document).ready(function () {
+    // Al hacer clic en un enlace
+    $(".sidebar .opciones li a").click(function () {
+        // Remover la clase "activo" de todos los enlaces
+        $(".sidebar .opciones li a").removeClass("activo");
+
+        // Agregar la clase "activo" al enlace que se hizo clic
+        $(this).addClass("activo");
+    });
+});

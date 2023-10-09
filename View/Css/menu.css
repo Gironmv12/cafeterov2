@@ -60,14 +60,17 @@ a {
 /* - - - - - - - - - -*/
 
 /* Estilos - saludo JS */
-#saludo {
-    margin-left: -50px;
+
+.salu2{
+    margin-right: 40%;
+}
+#saludo  {
     font-weight: lighter;
 }
 
 /* Estilos de Botón de Búsqueda */
 .btn-busqueda{
-    margin-right: 80px;
+    margin-right: 0px;
 }
 
 .busqueda {
@@ -143,7 +146,6 @@ input:hover {
     position: relative;
     overflow-y: auto;
     height: 100vh;
-    
 }
 
 .carrito{
@@ -216,6 +218,13 @@ input:hover {
 .sidebar .opciones li a:hover {
     background-color: #A9957D;
 }
+
+.sidebar .opciones li a.activo {
+    background-color: #A9957D;
+    color: #fff; /* Cambiar el color del texto cuando está activo */
+}
+
+
 
 /* Animaciones de iconos */
 .icon {
@@ -398,4 +407,38 @@ input:hover {
     margin-top: -75px;
     color: white;
 }
+
+/* Estilos de Nombre de usuario */
+.user{
+    display: flex; /* Utilizamos flexbox para alinear elementos en una fila */
+    align-items: center; /* Centra verticalmente los elementos */
+    font-size: 15px;
+    color: white;
+    margin-top: 240%;
+}
+
+.login a:hover{
+    color: rgb(255, 174, 0);
+}
+
+.nombre-usuario{  
+    margin-top: 15px;
+    margin-right: 10px;  
+    font-size: 15px;
+    color: white;
+}
+
+.menu-desplegable a::before {
+    content: url('../svg/arrow-right-on-rectangle.svg'); /* Ruta al archivo SVG */
+    display: inline-block;
+    width: 16px; /* Ancho del icono */
+    height: 16px; /* Alto del icono */
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+    vertical-align: middle; /* Alineación vertical del icono */
+}
+
+.menu-desplegable a:hover {
+    fill: #00ff1a30;
+}
+
 

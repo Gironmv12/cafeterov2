@@ -49,7 +49,6 @@ session_start();
             unset($_SESSION['login_exitoso']); // Limpia la variable de sesión
         }
     ?>
-
     <div class="app">
 
         <div class="sidebar">
@@ -109,16 +108,30 @@ session_start();
                     </li>
                 </ul>
 
+                <div class="user">
+                    <?php
+                        if (isset($_SESSION['usuario_nombre'])) {
+                            echo '<div class="nombre-usuario">' . $_SESSION['usuario_nombre'] . '</div>';
+                            echo '<div class="menu-desplegable">
+                                    <div id="opciones" class="oculto">
+                                        <a href="../../Controller/logout.php"></a>
+                                    </div>
+                                </div>';
+                        } else {
+                            // Si no está iniciada la sesión, puedes mostrar un mensaje o redirigir al usuario a la página de inicio de sesión.
+                            echo '<div class="login"> <a href="./login.php">Login</a> </div>';
+                        }
+                    ?>
+                </div>
+
             </div>
-
-
         </div>
 
         <div class="menu">
 
             <div class="barra_nav">
                 <!-- Header -->
-                <div>
+                <div class="salu2">
                     <h2 id="saludo"></h2>
                 </div>
 
@@ -134,23 +147,6 @@ session_start();
                         </svg>
                         <input placeholder="Buscar en el menú" type="search" class="input" id="busqueda-input">
                     </div>
-                </div>
-
-                <div>
-                    <?php
-                        if (isset($_SESSION['usuario_nombre'])) {
-                            echo '<div class="nombre-usuario">' . $_SESSION['usuario_nombre'] . '</div>';
-                            echo '<div class="menu-desplegable">
-                                    <button onclick="mostrarOpciones()">Opciones</button>
-                                    <div id="opciones" class="oculto">
-                                        <a href="../../Controller/logout.php">Salir</a>
-                                    </div>
-                                </div>';
-                        } else {
-                            // Si no está iniciada la sesión, puedes mostrar un mensaje o redirigir al usuario a la página de inicio de sesión.
-                            echo '<a href="./login.php">Login</a>';
-                        }
-                    ?>
                 </div>
             </div>
 
@@ -202,7 +198,6 @@ session_start();
                 <p class="orden">Orden actual</p>
                 <p id="fecha">Fecha:</p>
             </div>
-
         </div>
 
     </div>
