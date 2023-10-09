@@ -3,25 +3,20 @@ session_start();
 include('../Model/conexionweb.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar que se haya enviado un formulario POST
-
     $email = $_POST["email"];
     $clave = $_POST["clave"];
 
-    // Preparamos una consulta para obtener el usuario por correo y clave
-    $stmt = $conexion->prepare("SELECT idUsuario FROM usuarios WHERE correo = ? AND clave = ?");
+    // Preparar consulta para verificar el inicio de sesión
+    $stmt = $conexion->prepare("SELECT idUsuario, nombre FROM usuarios WHERE correo = ? AND clave = ?");
     $stmt->bind_param("ss", $email, $clave);
-
-    // Ejecutamos la consulta
     $stmt->execute();
-
-    // Obtenemos el resultado de la consulta
-    $stmt->bind_result($idUsuario);
+    $stmt->bind_result($idUsuario, $nombreUsuario);
 
     if ($stmt->fetch()) {
+        // Si el inicio de sesión es exitoso
         $_SESSION['login_exitoso'] = true;
+        $_SESSION['usuario_nombre'] = $nombreUsuario;
 
-        // Redireccionar al usuario a la página de inicio o a donde desees
         header("Location: ../View/Pages/menu.php");
         exit();
     } else {
@@ -31,10 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Cerramos la consulta
     $stmt->close();
 }
 
-// Cerramos la conexión
 $conexion->close();
 ?>

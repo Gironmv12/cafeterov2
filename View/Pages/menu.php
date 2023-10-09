@@ -27,9 +27,23 @@ session_start();
             // Muestra una alerta de éxito
             echo '<script>
                 Swal.fire({
-                icon: "success",
-                title: "login exitoso",
-                text: "El login se ha completado con éxito"
+                    icon: "success",
+                    title: "login exitoso",
+                    text: "El login se ha completado con éxito",
+                    // Cambiamos el icono
+                    iconColor: "#00e676",
+                    // Cambiamos el color de fondo
+                    backgroundColor: "#000000",
+                    // Cambiamos el color del texto
+                    textColor: "#ffffff",
+                    // Añadimos una imagen de fondo
+                    backgroundImage: "https://example.com/image.png",
+                    // Cambiamos la duración de la alerta
+                    timer: 1000,
+                    // Añadimos una acción
+                    onClose: function () {
+                        window.location.href = "https://example.com/";
+                    }
                 });
             </script>';
             unset($_SESSION['login_exitoso']); // Limpia la variable de sesión
@@ -123,7 +137,20 @@ session_start();
                 </div>
 
                 <div>
-                    <a href="../Pages/login.php" class="btn_login">Login</a>
+                    <?php
+                        if (isset($_SESSION['usuario_nombre'])) {
+                            echo '<div class="nombre-usuario">' . $_SESSION['usuario_nombre'] . '</div>';
+                            echo '<div class="menu-desplegable">
+                                    <button onclick="mostrarOpciones()">Opciones</button>
+                                    <div id="opciones" class="oculto">
+                                        <a href="../../Controller/logout.php">Salir</a>
+                                    </div>
+                                </div>';
+                        } else {
+                            // Si no está iniciada la sesión, puedes mostrar un mensaje o redirigir al usuario a la página de inicio de sesión.
+                            echo '<a href="./login.php">Login</a>';
+                        }
+                    ?>
                 </div>
             </div>
 
