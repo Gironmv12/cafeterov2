@@ -52,12 +52,12 @@ session_start();
                     <form action="../../Controller/sesion.php" method="post">
                         <div class="correo">
                             <label for="email">Correo</label>
-                            <input type="email" name="email" id="email" placeholder="">
+                            <input type="email" name="email" id="email" placeholder="" required>
                         </div>
 
                         <div class="contraseña">
                             <label for="clave">Contraseña</label>
-                            <input type="password" name="clave" id="clave" placeholder="">
+                            <input type="password" name="clave" id="clave" placeholder="" required>
                         </div>
 
                         <div class="btn-registrar">
