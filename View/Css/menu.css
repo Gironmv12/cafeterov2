@@ -412,7 +412,7 @@ input:hover {
     align-items: center; /* Centra verticalmente los elementos */
     font-size: 15px;
     color: white;
-    margin-top: 230%;
+    margin-top: 200%;
 }
 
 .login a:hover{
