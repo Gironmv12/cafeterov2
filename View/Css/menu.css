@@ -224,8 +224,6 @@ input:hover {
     color: #fff; /* Cambiar el color del texto cuando está activo */
 }
 
-
-
 /* Animaciones de iconos */
 .icon {
     transition: transform 0.3s ease
@@ -414,7 +412,7 @@ input:hover {
     align-items: center; /* Centra verticalmente los elementos */
     font-size: 15px;
     color: white;
-    margin-top: 240%;
+    margin-top: 230%;
 }
 
 .login a:hover{
