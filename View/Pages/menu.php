@@ -198,6 +198,10 @@ session_start();
                 <p class="orden">Orden actual</p>
                 <p id="fecha">Fecha:</p>
             </div>
+
+            <div class="carrito-productos-agregados">
+                <!-- Aquí se mostrarán los productos dinámicamente cuando se de click al boton comprar producto -->
+            </div>
         </div>
 
     </div>
