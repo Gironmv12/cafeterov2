@@ -1,5 +1,9 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +26,7 @@ session_start();
 </head>
 
 <body>
-<?php
+    <?php
         if (isset($_SESSION['login_exitoso']) && $_SESSION['login_exitoso']) {
             // Muestra una alerta de éxito
             echo '<script>
@@ -185,10 +189,30 @@ session_start();
                 </div>
 
                 <p class="texto"> Más solicitados</p>
-                
+
                 <div class="lista-productos" id="productos-container">
                     <!-- Aquí se mostrarán los productos dinámicamente -->
+                    <?php
+                        // Incluye el archivo metodos.php
+                        include_once('C:\MAMP\htdocs\cafeterov2\Controller\metodos.php');
 
+                        // Crea una instancia de la clase Productos
+                        $producto = new Productos();
+
+                        // Obtiene los productos desde la base de datos
+                        $productos = $producto->obtenerProductos();
+
+                        // Ahora puedes usar $productos en un bucle foreach
+                        foreach ($productos as $reg) {
+                            echo '<div class="inner-card">';
+                            echo '<img src="../images/productos/' . $reg['image'] . '" alt="Producto Photo" class="product-image">';
+                            echo '<h2 class="product-description">' . $reg['nombre'] . '</h2>';
+                            echo '<p class="product-description2">' . $reg['descripcion'] . '</p>';
+                            echo '<p class="product-price">$' . $reg['precio'] . ' MXN</p>';
+                            echo '<button class="button"></button>';
+                            echo '</div>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -206,8 +230,8 @@ session_start();
 
     </div>
     <!-- Script js funcionalidades -->
-    <script src="../app/productos-api.js"></script>
     <script src="../app/menu.js"></script>
+    <script src="../app/busqueda.js"></script>
 
 </body>
 

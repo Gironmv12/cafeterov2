@@ -1,33 +1,28 @@
 <?php
 session_start();
-include('../Model/conexionweb.php');
+require_once('../Controller/metodos.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
+    // Verificar si el formulario se ha enviado
+
+    // Recoger los datos del formulario
+    $correo = $_POST["email"];
     $clave = $_POST["clave"];
 
-    // Preparar consulta para verificar el inicio de sesión
-    $stmt = $conexion->prepare("SELECT idUsuario, nombre FROM usuarios WHERE correo = ? AND clave = ?");
-    $stmt->bind_param("ss", $email, $clave);
-    $stmt->execute();
-    $stmt->bind_result($idUsuario, $nombreUsuario);
+    // Crear una instancia de la clase Usuarios
+    $usuarios = new Usuarios();
 
-    if ($stmt->fetch()) {
-        // Si el inicio de sesión es exitoso
+    // Llamar al método para iniciar sesión
+    $usuario = $usuarios->iniciarSesion($correo, $clave);
+
+    if ($usuario) {
         $_SESSION['login_exitoso'] = true;
-        $_SESSION['usuario_nombre'] = $nombreUsuario;
+        $_SESSION['usuario_nombre'] = $usuario['nombre']; // Obtén el nombre del usuario de los datos recuperados
 
         header("Location: ../View/Pages/menu.php");
-        exit();
     } else {
-        // Si no se encontró un usuario, mostrar un mensaje de error
         $_SESSION['login_error'] = "Correo electrónico o contraseña incorrectos.";
         header("Location: ../View/Pages/login.php");
-        exit();
     }
-
-    $stmt->close();
 }
-
-$conexion->close();
 ?>

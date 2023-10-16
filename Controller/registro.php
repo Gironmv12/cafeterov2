@@ -1,28 +1,27 @@
 <?php
 session_start();
-include('../Model/conexionweb.php');
+require_once('../Controller/metodos.php');
 
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$correo = $_POST['email'];
-$clave = $_POST['clave'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificar si el formulario se ha enviado
 
-// Preparamos una consulta con marcadores de posición (?)
-$stmt = $conexion->prepare("INSERT INTO usuarios (nombre, apellido, correo, clave) VALUES (?, ?, ?, ?)");
+    // Recoger los datos del formulario
+    $nombre = $_POST["nombre"];
+    $apellido = $_POST["apellido"];
+    $correo = $_POST["email"]; // El nombre debe coincidir con el campo del formulario
+    $clave = $_POST["clave"];
 
-// Vinculamos los parámetros de la consulta
-$stmt->bind_param("ssss", $nombre, $apellido, $correo, $clave);
+    // Crear una instancia de la clase Usuarios
+    $usuarios = new Usuarios();
 
-// Ejecutamos la consulta
-if ($stmt->execute()) {
-    $_SESSION['registro_exitoso'] = true;
-    header("Location: ../View/Pages/login.php");
-} else {
-    // La consulta no se ha realizado correctamente
-    echo "Ha ocurrido un error al registrar al usuario.";
+    // Llamar al método para registrar usuarios
+    if ($usuarios->registrarUsuarios($nombre, $apellido, $correo, $clave)) {
+        // Registro exitoso
+        $_SESSION['registro_exitoso'] = true;
+        header("Location: ../view/Pages/login.php");
+    } else {
+        // Error en el registro
+        echo "Error en el registro. Inténtalo de nuevo.";
+    }
 }
-
-// Cerramos la consulta y la conexión
-$stmt->close();
-$conexion->close();
 ?>
