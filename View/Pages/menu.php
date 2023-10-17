@@ -200,7 +200,7 @@ if (!isset($_SESSION['carrito'])) {
                     <!-- Aquí se mostrarán los productos dinámicamente -->
                     <?php
                         // Incluye el archivo metodos.php
-                        include_once('C:\MAMP\htdocs\cafeteroprueba\Controller\metodos.php');
+                        include_once('C:\MAMP\htdocs\cafeterov2\Controller\metodos.php');
 
                         // Crea una instancia de la clase Productos
                         $producto = new Productos();
