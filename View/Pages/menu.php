@@ -4,6 +4,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Inicializa $_SESSION['carrito'] como un arreglo si aún no existe
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = array();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -194,7 +200,7 @@ error_reporting(E_ALL);
                     <!-- Aquí se mostrarán los productos dinámicamente -->
                     <?php
                         // Incluye el archivo metodos.php
-                        include_once('C:\MAMP\htdocs\cafeterov2\Controller\metodos.php');
+                        include_once('C:\MAMP\htdocs\cafeteroprueba\Controller\metodos.php');
 
                         // Crea una instancia de la clase Productos
                         $producto = new Productos();
@@ -209,9 +215,14 @@ error_reporting(E_ALL);
                             echo '<h2 class="product-description">' . $reg['nombre'] . '</h2>';
                             echo '<p class="product-description2">' . $reg['descripcion'] . '</p>';
                             echo '<p class="product-price">$' . $reg['precio'] . ' MXN</p>';
-                            echo '<button class="button"></button>';
+                            // Agrega un formulario para agregar al carrito por producto
+                            echo '<form method="post" action="../../Controller/agregarAlCarrito.php">';
+                            echo '<input type="hidden" name="idProducto" value="' . $reg['idProducto'] . '">';
+                            echo '<input type="submit" name="agregarAlCarrito" value="" class="button">';
+                            echo '</form>';
                             echo '</div>';
                         }
+                    
                     ?>
                 </div>
             </div>
@@ -225,6 +236,22 @@ error_reporting(E_ALL);
 
             <div class="carrito-productos-agregados">
                 <!-- Aquí se mostrarán los productos dinámicamente cuando se de click al boton comprar producto -->
+                <h3>Productos en el carrito:</h3>
+                <?php
+                    foreach ($_SESSION['carrito'] as $producto) {
+                        if (is_array($producto) && isset($producto['image'])) {
+                            echo '<div class="">';
+                            echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="">';
+                            echo '<h2 class="">' . $producto['nombre'] . '</h2>';
+                            echo '<p class="">' . $producto['descripcion'] . '</p>';
+                            echo '<p class="">$' . $producto['precio'] . ' MXN</p>';
+                            echo '</div>';
+                        } else {
+                            echo 'El producto en el carrito no contiene información de imagen.';
+                        }
+                    }
+                ?>
+
             </div>
         </div>
 

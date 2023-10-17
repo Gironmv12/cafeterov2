@@ -138,6 +138,27 @@ class Productos{
         }
 
     }
+
+    public function obtenerProductoPorID($idProducto) {
+        try {
+            $pdo = $this->db->connect();
+    
+            $sql = "SELECT idProducto, nombre, descripcion, image, precio FROM productos WHERE activo = 1 AND idProducto = :idProducto";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':idProducto', $idProducto, PDO::PARAM_INT);
+            $stmt->execute();
+    
+            $producto = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            // Cierra la conexión
+            $pdo = null;
+    
+            return $producto; // Devuelve el producto encontrado o false si no se encuentra
+    
+        } catch (PDOException $e) {
+            return false; // Manejo de error en la obtención del producto
+        }
+    }
 }
 
 ?>
