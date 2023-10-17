@@ -92,7 +92,7 @@ class Productos{
             // Recorre los resultados y agrega cada producto al arreglo
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $productos[] = array(
-                    'id' => $row['idProducto'],
+                    'idProducto' => $row['idProducto'],
                     'nombre' => $row['nombre'],
                     'descripcion' => $row['descripcion'],
                     'image' => $row['image'],
