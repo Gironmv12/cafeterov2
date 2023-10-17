@@ -236,15 +236,16 @@ if (!isset($_SESSION['carrito'])) {
 
             <div class="carrito-productos-agregados">
                 <!-- Aquí se mostrarán los productos dinámicamente cuando se de click al boton comprar producto -->
-                <h3>Productos en el carrito:</h3>
                 <?php
                     foreach ($_SESSION['carrito'] as $producto) {
                         if (is_array($producto) && isset($producto['image'])) {
-                            echo '<div class="">';
-                            echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="">';
-                            echo '<h2 class="">' . $producto['nombre'] . '</h2>';
-                            echo '<p class="">' . $producto['descripcion'] . '</p>';
-                            echo '<p class="">$' . $producto['precio'] . ' MXN</p>';
+                            echo '<div class="card-producto">';
+                            echo '<div class="frame-producto">';
+                            echo '<div class="productos-class">';
+                            echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="imagen-producto">';
+                            echo '<h2 class="nombre-producto">' . $producto['nombre'] . '</h2>';
+                            echo '<p class="descripcion-producto">' . $producto['descripcion'] . '</p>';
+                            echo '<p class="precio-producto">$' . $producto['precio'] . ' MXN</p>';
                             echo '</div>';
                         } else {
                             echo 'El producto en el carrito no contiene información de imagen.';
