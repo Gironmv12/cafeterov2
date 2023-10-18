@@ -237,22 +237,28 @@ if (!isset($_SESSION['carrito'])) {
             <div class="carrito-productos-agregados">
                 <!-- Aquí se mostrarán los productos dinámicamente cuando se de click al boton comprar producto -->
                 <?php
-                    foreach ($_SESSION['carrito'] as $producto) {
-                        if (is_array($producto) && isset($producto['image'])) {
-                            echo '<div class="container-carrito">';
-                            echo '<div class="card-producto">';
-                            echo '<div class="frame-producto">';
-                            echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="imagen-producto">';
-                            echo '<button class="btn-restar"> - </button>';
-                            echo '<button class="btn-sumar"> + </button>';
-                            echo '<h2 class="nombre-producto">' . $producto['nombre'] . '</h2>';
-                            echo '<p class="descripcion-producto">' . $producto['descripcion'] . '</p>';
-                            echo '<p class="precio-producto">$' . $producto['precio'] . ' MXN</p>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</div>'; /* Coloqué 3 divs de cierre por cada cosa que agregué, no moví lógica :) */
-                        } else {
-                            echo 'El producto en el carrito no contiene información de imagen.';
+                    if (empty($_SESSION['carrito'])) {
+                        echo '<div class="productos-container">';
+                        echo '<img src="../images/carrito-imagen-rb.png" alt="Carrito Vacío" class="product-image404">';
+                        echo '</div>';
+                    } else {
+                        foreach ($_SESSION['carrito'] as $producto) {
+                            if (is_array($producto) && isset($producto['image'])) {
+                                echo '<div class="container-carrito">';
+                                echo '<div class="card-producto">';
+                                echo '<div class="frame-producto">';
+                                echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="imagen-producto">';
+                                echo '<button class="btn-restar"> - </button>';
+                                echo '<button class="btn-sumar"> + </button>';
+                                echo '<h2 class="nombre-producto">' . $producto['nombre'] . '</h2>';
+                                echo '<p class="descripcion-producto">' . $producto['descripcion'] . '</p>';
+                                echo '<p class="precio-producto">$' . $producto['precio'] . ' MXN</p>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                            } else {
+                                echo 'El producto en el carrito no contiene información de imagen.';
+                            }
                         }
                     }
                 ?>
