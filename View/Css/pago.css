@@ -1,0 +1,110 @@
+/* Estilos para la fuente personalizada */
+@font-face {
+    font-family: 'Subjectivity-Regular';
+    src: url('../Fonts/Subjectivity-Regular.otf') format('truetype');
+}
+
+body {
+    font-family: 'Subjectivity-Regular';
+    background-color: #1F1D2B;
+}
+
+/* Maquetado */
+.parent {
+    display: grid;
+    grid-template-columns: .4fr 1fr .4fr;
+    grid-template-rows: .4fr 2fr .4fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 {
+    grid-area: 2 / 2 / 3 / 3;
+    border-radius: 20px;
+    background-color: #252836;
+}
+
+.div1 p{
+    color: white;
+    font-size: 17px;
+    margin-left: 15px;
+}
+
+.frame {
+    margin-right: 30px;
+    margin-left: 30px;
+    color: white;
+    height: 90px;
+    background-color: #82828338;
+    padding-top: 5px;
+}
+
+.frame p {
+    font-size: 13px;
+}
+
+#texto-t{
+    font-size: 13px;
+    color: #828283;
+}
+
+.contenido p{
+    margin-left: 30px;
+    color: white;   
+}
+
+.div2 {
+    margin-top: 15%;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.div2 p{
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+/* Estilos de boton */
+.boton-minimalista {
+    font-family: 'Subjectivity-Regular';
+    margin-left: 53%;
+    margin-top: 90px;
+    background-color: #2EC76D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 124px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.boton-minimalista svg {
+    margin-left: 5px;
+    fill: currentColor;
+}
+
+.boton-minimalista:hover {
+    background-color: #29b864;
+}
+
+/* Estilos de boton - regresar */
+.boton-regresar {
+    font-family: 'Subjectivity-Regular';
+    margin-left: 30px;
+    margin-top: -35px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 50px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.boton-regresar:hover{
+    background-color: #1F1D2B;
+}

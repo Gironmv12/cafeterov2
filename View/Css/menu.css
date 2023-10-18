@@ -543,7 +543,7 @@ input:hover {
 
 .carrito-productos-agregados::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #2D303E;
+    background-color: #2EC76D;
 }
 
 /* Estilos de compra (card de compra)*/
@@ -599,4 +599,17 @@ input:hover {
 
 .boton-minimalista:hover {
     background-color: #29b864;
+}
+
+/* Estilos imagen carrito */
+
+.productos-container{
+    margin-top: 120px;
+}
+
+.productos-container p{
+    text-align: center;
+    margin-top: -50px;
+    font-size: 14px;
+    color: #828283;
 }
