@@ -239,14 +239,18 @@ if (!isset($_SESSION['carrito'])) {
                 <?php
                     foreach ($_SESSION['carrito'] as $producto) {
                         if (is_array($producto) && isset($producto['image'])) {
+                            echo '<div class="container-carrito">';
                             echo '<div class="card-producto">';
                             echo '<div class="frame-producto">';
-                            echo '<div class="productos-class">';
                             echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="imagen-producto">';
+                            echo '<button class="btn-restar"> - </button>';
+                            echo '<button class="btn-sumar"> + </button>';
                             echo '<h2 class="nombre-producto">' . $producto['nombre'] . '</h2>';
                             echo '<p class="descripcion-producto">' . $producto['descripcion'] . '</p>';
                             echo '<p class="precio-producto">$' . $producto['precio'] . ' MXN</p>';
                             echo '</div>';
+                            echo '</div>';
+                            echo '</div>'; /* Coloqué 3 divs de cierre por cada cosa que agregué, no moví lógica :) */
                         } else {
                             echo 'El producto en el carrito no contiene información de imagen.';
                         }
@@ -254,6 +258,25 @@ if (!isset($_SESSION['carrito'])) {
                 ?>
 
             </div>
+
+            <!-- Card compra -->
+            <div class="container">
+                <div class="card-compra">
+                    <p>Subtotal: </p>
+                    <p>IVA 8% </p>
+                    <hr id="hr">
+                    <p id="total-compra">Total: </p>
+
+                    <button class="boton-minimalista"> Continuar con el pago
+                        <svg width="18" height="18" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M11 2.0625C6.06396 2.0625 2.0625 6.06396 2.0625 11C2.0625 15.936 6.06396 19.9375 11 19.9375C15.936 19.9375 19.9375 15.936 19.9375 11C19.9375 6.06396 15.936 2.0625 11 2.0625ZM14.9236 11.4861C15.0526 11.3572 15.125 11.1823 15.125 11C15.125 10.8177 15.0526 10.6428 14.9236 10.5139L12.1736 7.76386C11.9052 7.49538 11.4699 7.49538 11.2014 7.76386C10.9329 8.03235 10.9329 8.46765 11.2014 8.73614L12.7777 10.3125L7.5625 10.3125C7.1828 10.3125 6.875 10.6203 6.875 11C6.875 11.3797 7.1828 11.6875 7.5625 11.6875L12.7777 11.6875L11.2014 13.2639C10.9329 13.5323 10.9329 13.9676 11.2014 14.2361C11.4698 14.5046 11.9051 14.5046 12.1736 14.2361L14.9236 11.4861Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
         </div>
 
     </div>

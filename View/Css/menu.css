@@ -57,19 +57,21 @@ a {
     grid-template-columns: 10% 60% 30%;
     grid-template-rows: 1fr;
 }
+
 /* - - - - - - - - - -*/
 
 /* Estilos - saludo JS */
 
-.salu2{
+.salu2 {
     margin-right: 40%;
 }
-#saludo  {
+
+#saludo {
     font-weight: lighter;
 }
 
 /* Estilos de Botón de Búsqueda */
-.btn-busqueda{
+.btn-busqueda {
     margin-right: 0px;
 }
 
@@ -116,15 +118,15 @@ input:hover {
     height: 1rem;
 }
 
-.busqueda{
+.busqueda {
     transition: transform 0.5s ease;
 }
 
-.busqueda:hover{
+.busqueda:hover {
     transform: translateY(-2px);
 }
 
-.busqueda:not(:hover){
+.busqueda:not(:hover) {
     transform: translateY(0);
 }
 
@@ -148,7 +150,7 @@ input:hover {
     height: 100vh;
 }
 
-.carrito{
+.carrito {
     position: sticky;
     top: 0;
     width: 100%;
@@ -221,7 +223,8 @@ input:hover {
 
 .sidebar .opciones li a.activo {
     background-color: #A9957D;
-    color: #fff; /* Cambiar el color del texto cuando está activo */
+    color: #fff;
+    /* Cambiar el color del texto cuando está activo */
 }
 
 /* Animaciones de iconos */
@@ -322,7 +325,7 @@ input:hover {
 }
 
 /*Animaciones card */
-.inner-card{
+.inner-card {
     transition: transform 0.3s ease;
 }
 
@@ -348,7 +351,7 @@ input:hover {
 .product-description {
     font-size: 20px;
     margin-top: 20px;
-    font-weight:lighter;
+    font-weight: lighter;
 }
 
 .product-description2 {
@@ -356,7 +359,7 @@ input:hover {
     font-size: 12px;
     margin-top: 10px;
     text-align: justify;
-    font-weight:lighter;
+    font-weight: lighter;
 }
 
 /* Estilos para el precio del producto */
@@ -365,7 +368,6 @@ input:hover {
     font-size: 18px;
     margin-top: 10px;
     color: #EDD4B5;
-    /* Color del precio */
 }
 
 /* Estilos para el botón "Comprar" */
@@ -382,9 +384,9 @@ input:hover {
     transition: background-color 0.3s ease;
     background-image: url('../svg/shopping-cart.svg');
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
     background-size: 20px 20px;
-    margin-bottom: 15px ;
+    margin-bottom: 15px;
 }
 
 .button:hover {
@@ -392,7 +394,7 @@ input:hover {
 }
 
 /* Imagen error 404 */
-.product-image404{
+.product-image404 {
     max-width: 60%;
     height: auto;
     display: block;
@@ -400,51 +402,51 @@ input:hover {
     margin-top: -100px;
 }
 
-.text-error{
+.text-error {
     margin-left: 27%;
     margin-top: -75px;
     color: white;
 }
 
 /* Estilos de Nombre de usuario */
-.user{
-    display: flex; /* Utilizamos flexbox para alinear elementos en una fila */
-    align-items: center; /* Centra verticalmente los elementos */
+.user {
+    display: flex;
+    align-items: center;
     font-size: 15px;
     color: white;
     margin-top: 235%;
 }
 
-.login a:hover{
+.login a:hover {
     color: rgb(255, 174, 0);
 }
 
-.nombre-usuario{  
+.nombre-usuario {
     margin-top: 15px;
-    margin-right: 1px;  
+    margin-right: 1px;
     font-size: 15px;
     color: white;
 }
 
 .menu-desplegable a::before {
-    content: url('../svg/arrow-right-on-rectangle.svg'); /* Ruta al archivo SVG */
+    content: url('../svg/arrow-right-on-rectangle.svg');
     display: inline-block;
-    width: 16px; /* Ancho del icono */
-    height: 16px; /* Alto del icono */
-    margin-right: 8px; /* Espacio entre el icono y el texto */
-    vertical-align: middle; /* Alineación vertical del icono */
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
 .menu-desplegable a:hover {
     fill: #00ff1a30;
 }
 
-
-/* Estilos de carrito */
+/* Estilos de carrito (Cards de compra) */
 .card-producto {
+    white-space: nowrap;
     margin-left: 20px;
-    width: 390px; /* Reduzco el ancho del card a 250px */
-    height: 80px; /* Reduzco la altura del card a 80px */
+    width: 390px;
+    height: 80px;
     background-color: #2D303E;
     padding: 10px;
     border-radius: 10px;
@@ -456,29 +458,145 @@ input:hover {
     border-radius: 10px;
     background-color: #1F1D2B;
     margin-right: 10px;
-    margin-left: 10px;
 }
 
-.imagen-producto{
-    margin-top: 1%;
+.imagen-producto {
     margin-left: 10px;
     max-width: 80%;
 }
 
-.nombre-producto{
-    margin-top: -80px;
-    margin-left: 120px;
+.nombre-producto {
+    margin-top: -75px;
+    margin-left: 110px;
     color: white;
     font-size: 14px;
     font-weight: initial;
 }
 
-.descripcion-producto{
+.descripcion-producto {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    margin-top: -5px;
+    margin-left: 110px;
     font-size: 10px;
-    color: #828283
+    color: #828283;
 }
 
-.precio-producto{
+.precio-producto {
+    margin-left: 110px;
     font-size: 16px;
     color: #EDD4B5;
+}
+
+.container-carrito {
+    margin-top: 10px;
+}
+
+/* Estilos de botones mejorados - Diseño atractivo */
+.btn-restar {
+    margin-left: 190px;
+    margin-right: 60px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-sumar {
+    background-color: #2EC76D;
+    color: #fff;
+    border: 1px solid #2EC76D;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Contenedor fijo */
+.carrito-productos-agregados {
+    max-height: 340px;
+    overflow-y: auto;
+    top: 10px;
+    right: 10px;
+}
+
+/* Scroll cards */
+.carrito-productos-agregados::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+.carrito-productos-agregados::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #252836;
+}
+
+.carrito-productos-agregados::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #2D303E;
+}
+
+/* Estilos de compra (card de compra)*/
+.card-compra {
+    position: fixed;
+    top: 60%;
+    left: 70%;
+    white-space: nowrap;
+    margin-left: 20px;
+    width: 400px;
+    height: 90px;
+    background-color: #2D303E;
+    padding: 10px;
+}
+
+.card-compra p {
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 1px;
+    font-size: 13px;
+    color: #828283;
+}
+
+#total-compra {
+    font-size: 15px;
+    color: white;
+}
+
+#hr {
+    border: none;
+    border-top: 1px solid #747377;
+    margin: 13px 13px;
+}
+
+.boton-minimalista {
+    font-family: 'Subjectivity-Regular';
+    margin-left: -9px;
+    margin-top: 35px;
+    background-color: #2EC76D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 124px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.boton-minimalista svg {
+    margin-left: 5px;
+    fill: currentColor;
+}
+
+.boton-minimalista:hover {
+    background-color: #29b864;
 }
