@@ -410,19 +410,30 @@ input:hover {
 
 /* Estilos de Nombre de usuario */
 .user {
-    display: flex;
     align-items: center;
     font-size: 15px;
     color: white;
     margin-top: 235%;
 }
 
-.login a:hover {
-    color: rgb(255, 174, 0);
+/* Estilos boton login */
+.login a {
+    border: 2px solid #ffffff8a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: border-color 0.3s ease;
 }
 
+.login a:hover {
+    border-color: #29B864;
+}
+
+/* Estilos nombre de usuario */
 .nombre-usuario {
-    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-top: -5px;
     margin-right: 1px;
     font-size: 15px;
     color: white;
@@ -433,12 +444,9 @@ input:hover {
     display: inline-block;
     width: 16px;
     height: 16px;
-    margin-right: 8px;
+    margin-left: 45px;
+    margin-right: 16px;
     vertical-align: middle;
-}
-
-.menu-desplegable a:hover {
-    fill: #00ff1a30;
 }
 
 /* Estilos de carrito (Cards de compra) */
@@ -521,13 +529,10 @@ input:hover {
     cursor: pointer;
 }
 
-
 /* Contenedor fijo */
 .carrito-productos-agregados {
-    max-height: 340px;
+    max-height: 339px;
     overflow-y: auto;
-    top: 10px;
-    right: 10px;
 }
 
 /* Scroll cards */
@@ -602,9 +607,8 @@ input:hover {
 }
 
 /* Estilos imagen carrito */
-
 .productos-container{
-    margin-top: 120px;
+    margin-top: 110px;
 }
 
 .productos-container p{
