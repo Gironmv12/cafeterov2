@@ -474,7 +474,7 @@ input:hover {
 }
 
 .nombre-producto {
-    margin-top: -75px;
+    margin-top: -68px;
     margin-left: 110px;
     color: white;
     font-size: 14px;
@@ -500,33 +500,6 @@ input:hover {
 
 .container-carrito {
     margin-top: 10px;
-}
-
-/* Estilos de botones mejorados - Diseño atractivo */
-.btn-restar {
-    margin-left: 190px;
-    margin-right: 60px;
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 0 5px;
-    font-weight: inherit;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.btn-sumar {
-    background-color: #2EC76D;
-    color: #fff;
-    border: 1px solid #2EC76D;
-    border-radius: 5px;
-    padding: 0 5px;
-    font-weight: inherit;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 /* Contenedor fijo */
@@ -617,3 +590,80 @@ input:hover {
     font-size: 14px;
     color: #828283;
 }
+
+
+/* Estilos de botones mejorados - Diseño atractivo */
+.btn-restar {
+
+    justify-content: flex-end;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-sumar {
+    background-color: #2EC76D;
+    color: #fff;
+    border: 1px solid #2EC76D;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos de boton y contador */
+.cantidad-producto{
+    color: white;
+}
+
+.producto-cont{
+    margin-left: 235px;
+    margin-top: -30px;
+    gap: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    transition: color 0.3s;
+  }
+  
+  .btn-eliminar:hover {
+    color: #2EC76D;
+  }
+
+/* Esilos de texto en card */
+  .text-check{
+    text-align: center;
+    color: #999;
+    font-size: 15px;
+  }
+
+  /* Estilos de alert */
+  /* Estilo para el botón de confirmación */
+.confirm-button {
+    background-color: #007bff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
