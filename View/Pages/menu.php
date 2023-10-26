@@ -9,7 +9,6 @@ if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = array();
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +31,7 @@ if (!isset($_SESSION['carrito'])) {
 </head>
 
 <body>
+
     <?php
         if (isset($_SESSION['login_exitoso']) && $_SESSION['login_exitoso']) {
             // Muestra una alerta de éxito
@@ -164,31 +164,31 @@ if (!isset($_SESSION['carrito'])) {
                 <div class="categoria">
                     <div class="card card-todos">
                         <!-- imagen -->
-                        <img src="../images/produccion-de-cafe.png" width="60px" height="60px" alt="">
+                        <a href="#"> <img src="../images/produccion-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Todos</p>
                     </div>
                     <div class="card card-tradicional">
                         <!-- imagen -->
-                        <img src="../images/grano-de-cafe.png" width="60px" height="60px" alt="">
+                        <a href="#"> <img src="../images/grano-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Tradicional</p>
                     </div>
                     <div class="card card-gourmet">
                         <!-- imagen -->
-                        <img src="../images/bolsa-de-cafe.png" width="60px" height="60px" alt="">
+                        <a href="#"> <img src="../images/bolsa-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Gorumet</p>
                     </div>
                     <div class="card card-supermo">
                         <!-- imagen -->
-                        <img src="../images/paquete-de-cafe.png" width="60px" height="60px" alt="#">
+                        <a href="#"> <img src="../images/paquete-de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Supremo</p>
                     </div>
                     <div class="card card-descafeinado">
                         <!-- imagen -->
-                        <img src="../images/bolsita2de-cafe.png" width="60px" height="60px" alt="#">
+                        <a href="#"> <img src="../images/bolsita2de-cafe.png" width="60px" height="60px" alt=""> </a>
                         <!-- titulo -->
                         <p>Descafeinado</p>
                     </div>
@@ -210,19 +210,33 @@ if (!isset($_SESSION['carrito'])) {
 
                         // Ahora puedes usar $productos en un bucle foreach
                         foreach ($productos as $reg) {
+                            // Verificar si el producto ya está en el carrito
+                            $productoEnCarrito = false;
+                            foreach ($_SESSION['carrito'] as $carritoProducto) {
+                                if ($carritoProducto['idProducto'] === $reg['idProducto']) {
+                                    $productoEnCarrito = true;
+                                    break;
+                                }
+                            }
+
                             echo '<div class="inner-card">';
                             echo '<img src="../images/productos/' . $reg['image'] . '" alt="Producto Photo" class="product-image">';
                             echo '<h2 class="product-description">' . $reg['nombre'] . '</h2>';
                             echo '<p class="product-description2">' . $reg['descripcion'] . '</p>';
                             echo '<p class="product-price">$' . $reg['precio'] . ' MXN</p>';
+
                             // Agrega un formulario para agregar al carrito por producto
-                            echo '<form method="post" action="../../Controller/agregarAlCarrito.php">';
-                            echo '<input type="hidden" name="idProducto" value="' . $reg['idProducto'] . '">';
-                            echo '<input type="submit" name="agregarAlCarrito" value="" class="button">';
-                            echo '</form>';
+                            if (!$productoEnCarrito) {
+                                echo '<form method="post" action="../../Controller/agregarAlCarrito.php">';
+                                echo '<input type="hidden" name="idProducto" value="' . $reg['idProducto'] . '">';
+                                echo '<input type="submit" name="agregarAlCarrito" value="" class="button">';
+                                echo '</form>';
+                            } else {
+                                echo '<p>Producto en el carrito</p>';
+                            }
+
                             echo '</div>';
                         }
-                    
                     ?>
                 </div>
             </div>
@@ -243,14 +257,36 @@ if (!isset($_SESSION['carrito'])) {
                         echo '<p> Parece que no tienes nada en tu carrito. <br> ¿Qué esperas?</p>';
                         echo '</div>';
                     } else {
-                        foreach ($_SESSION['carrito'] as $producto) {
+                        foreach ($_SESSION['carrito'] as $key => $producto) {
                             if (is_array($producto) && isset($producto['image'])) {
                                 echo '<div class="container-carrito">';
                                 echo '<div class="card-producto">';
                                 echo '<div class="frame-producto">';
                                 echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="imagen-producto">';
-                                echo '<button class="btn-restar"> - </button>';
-                                echo '<button class="btn-sumar"> + </button>';
+                                // Utiliza un formulario para manejar las acciones de sumar y restar
+                                echo '<form method="post" action="../../Controller/actualizarCarrito.php">';
+                                echo '<input type="hidden" name="productoKey" value="' . $key . '">'; // Clave para identificar el producto
+                                echo '<input type="hidden" name="accion" value="restar">'; // Acción para restar
+                                echo '<button type="submit" class="btn-restar"> - </button>';
+                                echo '</form>';
+
+                                // Muestra la cantidad actual del producto
+                                if (isset($producto['cantidad'])) {
+                                    echo '<span class="cantidad-producto">' . $producto['cantidad'] . '</span>';
+                                }
+
+                                // Utiliza un formulario para manejar las acciones de sumar y restar
+                                echo '<form method="post" action="../../Controller/actualizarCarrito.php">';
+                                echo '<input type="hidden" name="productoKey" value="' . $key . '">'; // Clave para identificar el producto
+                                echo '<input type="hidden" name="accion" value="sumar">'; // Acción para sumar
+                                echo '<button type="submit" class="btn-sumar"> + </button>';
+                                echo '</form>';
+
+                                echo '<form action="../../Controller/eliminarProducto.php" method="POST">';
+                                echo '<input type="hidden" name="idProducto" value="' . $producto['idProducto'] . '">';//mover esilos
+                                echo '<button type="submit" class="btn-eliminar" onclick="return confirm(\'¿Seguro que deseas eliminar este producto?\')">Eliminar</button>';
+                                echo '</form>';
+
                                 echo '<h2 class="nombre-producto">' . $producto['nombre'] . '</h2>';
                                 echo '<p class="descripcion-producto">' . $producto['descripcion'] . '</p>';
                                 echo '<p class="precio-producto">$' . $producto['precio'] . ' MXN</p>';
@@ -263,7 +299,6 @@ if (!isset($_SESSION['carrito'])) {
                         }
                     }
                 ?>
-
             </div>
 
             <!-- Card compra -->
@@ -274,22 +309,24 @@ if (!isset($_SESSION['carrito'])) {
                     <hr id="hr">
                     <p id="total-compra">Total: </p>
 
-                    <button class="boton-minimalista" href="../Pages/pago.php" > Continuar con el pago 
+                    <a class="boton-minimalista" href="../Pages/pago.php"> Continuar con el pago
                         <svg width="18" height="18" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M11 2.0625C6.06396 2.0625 2.0625 6.06396 2.0625 11C2.0625 15.936 6.06396 19.9375 11 19.9375C15.936 19.9375 19.9375 15.936 19.9375 11C19.9375 6.06396 15.936 2.0625 11 2.0625ZM14.9236 11.4861C15.0526 11.3572 15.125 11.1823 15.125 11C15.125 10.8177 15.0526 10.6428 14.9236 10.5139L12.1736 7.76386C11.9052 7.49538 11.4699 7.49538 11.2014 7.76386C10.9329 8.03235 10.9329 8.46765 11.2014 8.73614L12.7777 10.3125L7.5625 10.3125C7.1828 10.3125 6.875 10.6203 6.875 11C6.875 11.3797 7.1828 11.6875 7.5625 11.6875L12.7777 11.6875L11.2014 13.2639C10.9329 13.5323 10.9329 13.9676 11.2014 14.2361C11.4698 14.5046 11.9051 14.5046 12.1736 14.2361L14.9236 11.4861Z"
                                 fill="white" />
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
 
         </div>
 
     </div>
+
     <!-- Script js funcionalidades -->
     <script src="../app/menu.js"></script>
     <script src="../app/busqueda.js"></script>
+
 
 </body>
 

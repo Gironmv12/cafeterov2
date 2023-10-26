@@ -161,4 +161,72 @@ class Productos{
     }
 }
 
+class Carrito{
+    private $db;
+    private $productos;
+
+    public function __construct(){
+        $this->db= new DB();
+
+        $this->productos = &$_SESSION['carrito'];
+
+        if (!is_array($this->productos)) {
+            $this->productos = array();
+        }
+    }
+
+    
+
+    public function agregarAlCarrito($idProducto) {
+        // Crea una instancia de la clase Productos
+        $producto = new Productos();
+
+        // Obtén el producto por ID
+        $productoInfo = $producto->obtenerProductoPorID($idProducto);
+
+        if ($productoInfo) {
+            if (is_array($productoInfo)) {
+                // Verifica si el producto ya está en el carrito
+                $encontrado = false;
+                foreach ($this->productos as &$productoEnCarrito) {
+                    if ($productoEnCarrito['idProducto'] == $productoInfo['idProducto']) {
+                        // Si el producto ya está en el carrito, aumenta la cantidad si el stock lo permite
+                        if ($productoEnCarrito['cantidad'] < $productoInfo['stock']) {
+                            $productoEnCarrito['cantidad']++;
+                        }
+                        $encontrado = true;
+                        break;
+                    }
+                }
+
+                if (!$encontrado) {
+                    // Si el producto no estaba en el carrito, agrega uno nuevo si el stock lo permite
+                    if ($productoInfo['stock'] > 0) {
+                        $productoInfo['cantidad'] = 1;
+                        $this->productos[] = $productoInfo;
+                    }
+                }
+            } else {
+                echo "Producto no encontrado.";
+            }
+        } else {
+            echo "Producto no encontrado.";
+        }
+    }
+
+    public function actualizarCarrito($productoKey, $accion) {
+        // Verifica si la clave del producto es válida
+        if (isset($this->productos[$productoKey])) {
+            $producto = &$this->productos[$productoKey]; // Accede al producto por referencia
+
+            // Realiza la acción correspondiente
+            if ($accion === 'restar' && $producto['cantidad'] > 1) {
+                $producto['cantidad']--;
+            } elseif ($accion === 'sumar' && $producto['cantidad'] < 10) {
+                $producto['cantidad']++;
+            }
+        }
+    }
+}
+
 ?>
