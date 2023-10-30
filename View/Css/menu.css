@@ -474,7 +474,7 @@ input:hover {
 }
 
 .nombre-producto {
-    margin-top: -68px;
+    margin-top: -65px;
     margin-left: 110px;
     color: white;
     font-size: 14px;
@@ -500,6 +500,33 @@ input:hover {
 
 .container-carrito {
     margin-top: 10px;
+}
+
+/* Estilos de botones mejorados - Diseño atractivo */
+.btn-restar {
+    margin-left: 190px;
+    margin-right: 60px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-sumar {
+    background-color: #2EC76D;
+    color: #fff;
+    border: 1px solid #2EC76D;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Contenedor fijo */
@@ -591,41 +618,14 @@ input:hover {
     color: #828283;
 }
 
-
-/* Estilos de botones mejorados - Diseño atractivo */
-.btn-restar {
-
-    justify-content: flex-end;
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 0 5px;
-    font-weight: inherit;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.btn-sumar {
-    background-color: #2EC76D;
-    color: #fff;
-    border: 1px solid #2EC76D;
-    border-radius: 5px;
-    padding: 0 5px;
-    font-weight: inherit;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 /* Estilos de boton y contador */
 .cantidad-producto{
+    margin-left: -55px;
     color: white;
 }
 
 .producto-cont{
-    margin-left: 235px;
+    margin-left: 30px;
     margin-top: -30px;
     gap: 15px;
     display: flex;
@@ -654,16 +654,3 @@ input:hover {
     color: #999;
     font-size: 15px;
   }
-
-  /* Estilos de alert */
-  /* Estilo para el botón de confirmación */
-.confirm-button {
-    background-color: #007bff; /* Fondo azul */
-    color: #fff; /* Texto blanco */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-

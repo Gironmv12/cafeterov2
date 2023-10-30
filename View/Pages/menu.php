@@ -232,7 +232,7 @@ if (!isset($_SESSION['carrito'])) {
                                 echo '<input type="submit" name="agregarAlCarrito" value="" class="button">';
                                 echo '</form>';
                             } else {
-                                echo '<p class="text-check">Producto en el carrito <img class="img-check" src="../images/check.png" width="18px" height="18px" </p> ';
+                                echo '<p class="text-check">Producto en el carrito <img class="img-check" src="../images/check.png" width="18px" height="18px" </p>';
                             }
 
                             echo '</div>';
@@ -251,60 +251,59 @@ if (!isset($_SESSION['carrito'])) {
             <div class="carrito-productos-agregados">
                 <!-- Aquí se mostrarán los productos dinámicamente cuando se de click al boton comprar producto -->
                 <?php
-                        if (empty($_SESSION['carrito'])) {
-                            echo '<div class="productos-container">';
-                            echo '<img src="../images/carrito-imagen-rb.png" alt="Carrito Vacío" class="product-image404">';
-                            echo '<p> Parece que no tienes nada en tu carrito. <br> ¿Qué esperas?</p>';
-                            echo '</div>';
-                        } else {
-                            foreach ($_SESSION['carrito'] as $key => $producto) {
-                                if (is_array($producto) && isset($producto['image'])) {
-                                    echo '<div class="container-carrito">';
-                                    echo '<div class="card-producto">';
-                                    echo '<div class="frame-producto">';
-                                    echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="imagen-producto">';
-                                    // Utiliza un formulario para manejar las acciones de sumar y restar
-                                    echo '<form method="post" action="../../Controller/actualizarCarrito.php">';
-                                    echo '<input type="hidden" name="productoKey" value="' . $key . '">'; // Clave para identificar el producto
-                                    echo '<div class="producto-cont">';
-                                    echo '<input type="hidden" name="accion" value="restar">'; // Acción para restar
-                                    echo '<button type="submit" class="btn-restar"> - </button>';
-                                    
-                                    echo '</form>';
-                                    
+                    if (empty($_SESSION['carrito'])) {
+                        echo '<div class="productos-container">';
+                        echo '<img src="../images/carrito-imagen-rb.png" alt="Carrito Vacío" class="product-image404">';
+                        echo '<p> Parece que no tienes nada en tu carrito. <br> ¿Qué esperas?</p>';
+                        echo '</div>';
+                    } else {
+                        foreach ($_SESSION['carrito'] as $key => $producto) {
+                            if (is_array($producto) && isset($producto['image'])) {
+                                echo '<div class="container-carrito">';
+                                echo '<div class="card-producto">';
+                                echo '<div class="frame-producto">';
+                                echo '<img src="../images/productos/' . $producto['image'] . '" alt="Producto Photo" class="imagen-producto">';
+                                // Utiliza un formulario para manejar las acciones de sumar y restar
+                                echo '<div class="producto-cont">';
+                                echo '<form method="post" action="../../Controller/actualizarCarrito.php">';
+                                echo '<input type="hidden" name="productoKey" value="' . $key . '">'; // Clave para identificar el producto
+                                echo '<input type="hidden" name="accion" value="restar">'; // Acción para restar
+                                echo '<button type="submit" class="btn-restar"> - </button>';
+                                echo '</form>';
 
-                                    // Muestra la cantidad actual del producto
-                                    if (isset($producto['cantidad'])) {
-                                        echo '<span class="cantidad-producto">' . $producto['cantidad'] . '</span>';
-                                    }
-
-                                    // Utiliza un formulario para manejar las acciones de sumar y restar
-                                    echo '<form method="post" action="../../Controller/actualizarCarrito.php">';
-                                    echo '<input type="hidden" name="productoKey" value="' . $key . '">'; // Clave para identificar el producto
-                                    echo '<input type="hidden" name="accion" value="sumar">'; // Acción para sumar
-                                    echo '<button type="submit" class="btn-sumar"> + </button>';
-                                    echo '</form>';
-
-                                    echo '<form action="../../Controller/eliminarProducto.php" method="POST">';
-                                    echo '<input type="hidden" name="idProducto" value="' . $producto['idProducto'] . '">';//mover esilos
-                                    echo '<button type="submit" class="btn-eliminar" onclick="return confirm(\'¿Seguro que deseas eliminar este producto?\')">Eliminar</button>';
-                                    echo '</div>';
-                                    echo '</form>';
-
-                                    echo '<h2 class="nombre-producto">' . $producto['nombre'] . '</h2>';
-                                    echo '<p class="descripcion-producto">' . $producto['descripcion'] . '</p>';
-                                    echo '<p class="precio-producto">$' . $producto['precio'] . ' MXN</p>';
-                                    echo '</div>';
-                                    echo '</div>';
-                                    echo '</div>';
-                                } else {
-                                    echo 'El producto en el carrito no contiene información de imagen.';
+                                // Muestra la cantidad actual del producto
+                                if (isset($producto['cantidad'])) {
+                                    echo '<span class="cantidad-producto">' . $producto['cantidad'] . '</span>';
                                 }
+
+                                // Utiliza un formulario para manejar las acciones de sumar y restar
+                                echo '<form method="post" action="../../Controller/actualizarCarrito.php">';
+                                echo '<input type="hidden" name="productoKey" value="' . $key . '">'; // Clave para identificar el producto
+                                echo '<input type="hidden" name="accion" value="sumar">'; // Acción para sumar
+                                echo '<button type="submit" class="btn-sumar"> + </button>';
+                                echo '</form>';
+
+                                echo '<form action="../../Controller/eliminarProducto.php" method="POST">';
+                                echo '<input type="hidden" name="idProducto" value="' . $producto['idProducto'] . '">';//mover esilos
+                                echo '<button type="submit" class="btn-eliminar" onclick="return confirm(\'¿Seguro que deseas eliminar este producto?\')">Eliminar</button>';
+                                
+                                echo '</form>';
+                                echo '</div>';
+
+                                echo '<h2 class="nombre-producto">' . $producto['nombre'] . '</h2>';
+                                echo '<p class="descripcion-producto">' . $producto['descripcion'] . '</p>';
+                                echo '<p class="precio-producto">$' . $producto['precio'] . ' MXN</p>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                            } else {
+                                echo 'El producto en el carrito no contiene información de imagen.';
                             }
                         }
-                    ?>
+                    }
+                ?>
             </div>
-            
+
             <!-- Card compra -->
             <div class="container">
                 <div class="card-compra">

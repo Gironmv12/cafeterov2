@@ -143,7 +143,7 @@ class Productos{
         try {
             $pdo = $this->db->connect();
     
-            $sql = "SELECT idProducto, nombre, descripcion, image, precio FROM productos WHERE activo = 1 AND idProducto = :idProducto";
+            $sql = "SELECT idProducto, nombre, descripcion, image, precio, stock FROM productos WHERE activo = 1 AND idProducto = :idProducto";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':idProducto', $idProducto, PDO::PARAM_INT);
             $stmt->execute();
@@ -159,6 +159,8 @@ class Productos{
             return false; // Manejo de error en la obtención del producto
         }
     }
+
+    
 }
 
 class Carrito{
