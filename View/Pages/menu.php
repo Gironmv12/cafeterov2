@@ -325,11 +325,12 @@ if (!isset($_SESSION['carrito'])) {
                         $iva = $subtotal * 0.08; // Calcula el 8% del IVA
                         $total = $subtotal + $iva; // Calcula el total
                     ?>
-
-                    <p>Subtotal: $<?php echo number_format($subtotal, 2); ?> MXN</p>
-                    <p>IVA 8%: $<?php echo number_format($iva, 2); ?> MXN</p>
+                    <p class="total-subtotal-"> Subtotal: </p>
+                    <p id="total-subtotal"> $<?php echo number_format($subtotal, 2); ?> MXN </p>
+                    <p class="total-iva"> $<?php echo number_format($iva, 2); ?> MXN </p>
                     <hr id="hr">
-                    <p id="total-compra">Total: $<?php echo number_format($total, 2); ?> MXN</p>
+                    <p class="total-compra-"> Total: </p>
+                    <p id="total-compra"> $<?php echo number_format($total, 2); ?> MXN </p>
 
                     <a class="boton-minimalista" href="../Pages/pago.php"> Continuar con el pago
                         <svg width="18" height="18" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

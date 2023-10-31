@@ -358,7 +358,7 @@ input:hover {
     color: #C4C4C4;
     font-size: 12px;
     margin-top: 10px;
-    text-align: justify;
+    /*text-align: justify;*/
     font-weight: lighter;
 }
 
@@ -413,7 +413,7 @@ input:hover {
     align-items: center;
     font-size: 15px;
     color: white;
-    margin-top: 235%;
+    margin-top: 230%;
 }
 
 /* Estilos boton login */
@@ -432,9 +432,10 @@ input:hover {
 
 /* Estilos nombre de usuario */
 .nombre-usuario {
-    margin-bottom: 10px;
-    margin-top: -20px;
-    margin-right: 1px;
+    display: flex;
+    margin-top: -10px;
+    padding-bottom: 7px;
+    align-items: center;
     font-size: 15px;
     color: white;
 }
@@ -442,12 +443,9 @@ input:hover {
 .menu-desplegable a::before {
     content: url('../svg/arrow-right-on-rectangle.svg');
     display: inline-block;
-    width: 16px;
-    height: 16px;
     margin-left: 45px;
-    margin-right: 16px;
-    vertical-align: middle;
 }
+
 
 /* Estilos de carrito (Cards de compra) */
 .card-producto {
@@ -474,7 +472,7 @@ input:hover {
 }
 
 .nombre-producto {
-    margin-top: -65px;
+    margin-top: -68px;
     margin-left: 110px;
     color: white;
     font-size: 14px;
@@ -505,7 +503,7 @@ input:hover {
 /* Estilos de botones mejorados - Diseño atractivo */
 .btn-restar {
     margin-left: 190px;
-    margin-right: 60px;
+    margin-right: 54px;
     background-color: transparent;
     color: #fff;
     border: 1px solid #ffffff;
@@ -572,11 +570,31 @@ input:hover {
     color: #828283;
 }
 
-#total-compra {
-    font-size: 15px;
+.total-compra-, #total-compra {
+    display: inline-block;
+    font-size: 14px;
     color: white;
+    margin-right: 55%;
 }
 
+.total-subtotal-, #total-subtotal {
+    display: inline-block;
+    font-size: 14px;
+    color: white;
+    margin-right: 49%;
+}
+
+.total-iva {
+    padding-top: 4px;
+    margin-right: 54px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .total-iva::before {
+    content: "IVA 8%";
+  }
+  
 #hr {
     border: none;
     border-top: 1px solid #747377;
@@ -620,6 +638,7 @@ input:hover {
 
 /* Estilos de boton y contador */
 .cantidad-producto{
+    padding-top: 4px;
     margin-left: -55px;
     color: white;
 }
