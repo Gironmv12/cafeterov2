@@ -1,5 +1,5 @@
 <?php
-require_once('C:\MAMP\htdocs\cafeterov2\Model\bdApi.php');
+require_once __DIR__ . '/../Model/bdApi.php';
 
 //CLASE USUARIOS
 class Usuarios{

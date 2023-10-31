@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 // Inicia la sesión si aún no se ha iniciado
 session_start();
 include_once('./metodos.php');

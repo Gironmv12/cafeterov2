@@ -1,6 +1,6 @@
 <?php
 // Incluye el archivo metodos.php para poder utilizar la clase Productos y sus métodos
-include_once('C:\MAMP\htdocs\cafeterov2\Controller\metodos.php');
+include('./metodos.php');
 
 // Verifica si se ha enviado una consulta a través de POST
 if (isset($_POST['query'])) {
