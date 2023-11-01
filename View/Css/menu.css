@@ -601,7 +601,7 @@ input:hover {
     margin: 13px 13px;
 }
 
-.boton-minimalista {
+.boton-minimalista{
     font-family: 'Subjectivity-Regular';
     margin-left: -9px;
     margin-top: 35px;
@@ -615,9 +615,10 @@ input:hover {
     align-items: center;
 }
 
-.boton-minimalista svg {
-    margin-left: 5px;
-    fill: currentColor;
+.boton-estilos svg{
+    display: flex;
+    margin-top: -26px;
+    margin-left: 67%;
 }
 
 .boton-minimalista:hover {
