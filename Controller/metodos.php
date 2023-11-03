@@ -322,12 +322,12 @@ class Compras {
             $pdo->beginTransaction();
     
             // Sólo idCompra en la query
-            $sqlInsertDetalle = "INSERT INTO detalle_compra (idProducto, idCompra, cantidad, precioCompra) 
-                               VALUES (:idProducto, :idCompra, :cantidad, :precioCompra)";
+            $sqlInsertDetalle = "INSERT INTO detalle_compra (idProducto, idCompras, cantidad, precioCompra) 
+                               VALUES (:idProducto, :idCompras, :cantidad, :precioCompra)";
     
             $stmtInsertDetalle = $pdo->prepare($sqlInsertDetalle);
             $stmtInsertDetalle->bindParam(':idProducto', $idProducto);
-            $stmtInsertDetalle->bindParam(':idCompra', $idCompra);
+            $stmtInsertDetalle->bindParam(':idCompras', $idCompra);
             $stmtInsertDetalle->bindParam(':cantidad', $cantidad);
             $stmtInsertDetalle->bindParam(':precioCompra', $precioCompra);
     
