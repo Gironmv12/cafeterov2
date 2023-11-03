@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../Model/bdApi.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 //CLASE USUARIOS
 class Usuarios{
@@ -57,6 +59,7 @@ class Usuarios{
             $stmt->execute();
 
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            
 
             // Cerrar la conexión
             $pdo = null;
@@ -67,6 +70,30 @@ class Usuarios{
             return false;
         }
     }
+
+    public function obtenerIdUsuario($correo){
+        try{
+            $pdo = $this->db->connect();
+            // Preparar la consulta SQL para obtener el ID del usuario
+            $sql = "SELECT idUsuario FROM usuarios WHERE correo = :correo";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':correo', $correo);
+    
+            // Ejecutar la consulta
+            $stmt->execute();
+    
+            $idUsuario = $stmt->fetch(PDO::FETCH_COLUMN);
+    
+            // Cerrar la conexión
+            $pdo = null;
+    
+            return $idUsuario; // Devolver el ID del usuario
+    
+        }catch(PDOException $e){
+            return false;
+        }
+    }
+    
 }
 
 //CLASE PRODUCTOS
@@ -229,6 +256,99 @@ class Carrito{
             }
         }
     }
+}
+
+class Compras {
+    private $db;
+
+    public function __construct() {
+        $this->db = new DB();
+    }
+
+    public function insertarCompra($idUsuario, $montoTotal) {
+        try {
+            $pdo = $this->db->connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+            // Validación de monto
+            if ($montoTotal <= 0) {
+                return false;
+            }
+    
+            // Iniciar transacción
+            $pdo->beginTransaction();
+    
+            // Insertar idUsuario, montoTotal y la fecha de compra
+            $sqlInsertCompra = "INSERT INTO compras (idUsuario, monto, fechaCompras) 
+                              VALUES (:idUsuario, :montoTotal, NOW())";
+    
+            $stmtInsertCompra = $pdo->prepare($sqlInsertCompra);
+            $stmtInsertCompra->bindParam(':idUsuario', $idUsuario);
+            $stmtInsertCompra->bindParam(':montoTotal', $montoTotal);
+            $stmtInsertCompra->execute();
+    
+            // Verificar id insertado
+            $idCompra = $pdo->lastInsertId();
+            if($idCompra == 0){
+                throw new Exception("Error al insertar compra");
+            }
+    
+            // Commit
+            $pdo->commit();
+    
+            return $idCompra;
+        } catch (Exception $e) {
+            // Rollback y manejar excepción
+            $pdo->rollback();
+            echo "Error: " . $e->getMessage();
+            return false;
+        } finally {
+            $pdo = null;
+        }
+    }
+    
+    
+
+    public function insertarDetalleCompra($idCompra, $idProducto, $cantidad, $precioCompra) {
+        try {
+            // Validaciones
+            if ($idCompra <= 0 || $idProducto <= 0 || $cantidad <= 0 || $precioCompra <= 0) {
+                return false;
+            }
+    
+            $pdo = $this->db->connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+            $pdo->beginTransaction();
+    
+            // Sólo idCompra en la query
+            $sqlInsertDetalle = "INSERT INTO detalle_compra (idProducto, idCompra, cantidad, precioCompra) 
+                               VALUES (:idProducto, :idCompra, :cantidad, :precioCompra)";
+    
+            $stmtInsertDetalle = $pdo->prepare($sqlInsertDetalle);
+            $stmtInsertDetalle->bindParam(':idProducto', $idProducto);
+            $stmtInsertDetalle->bindParam(':idCompra', $idCompra);
+            $stmtInsertDetalle->bindParam(':cantidad', $cantidad);
+            $stmtInsertDetalle->bindParam(':precioCompra', $precioCompra);
+    
+            // Ejecutar query
+            $stmtInsertDetalle->execute();
+    
+            // Validar antes de commit
+            if ($stmtInsertDetalle->rowCount() == 0) {
+                throw new Exception("Error al insertar detalle");
+            }
+    
+            $pdo->commit();
+            return true;
+        } catch (Exception $e) {
+            $pdo->rollback();
+            return false;
+        } finally {
+            $pdo = null;
+        }
+    }
+    
 }
 
 ?>

@@ -17,6 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($usuario) {
         $_SESSION['login_exitoso'] = true;
+
+        // Obtén el ID del usuario de la base de datos
+        $idUsuario = $usuarios->obtenerIdUsuario($correo);
+
+        // Guarda el ID del usuario en la sesión
+        $_SESSION['usuario_id'] = $idUsuario;
+
         $_SESSION['usuario_nombre'] = $usuario['nombre']; // Obtén el nombre del usuario de los datos recuperados
 
         header("Location: ../View/Pages/menu.php");
