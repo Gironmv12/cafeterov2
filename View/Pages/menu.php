@@ -284,9 +284,10 @@ if (!isset($_SESSION['carrito'])) {
                                 echo '<button type="submit" class="btn-sumar"> + </button>';
                                 echo '</form>';
 
-                                echo '<form action="../../Controller/eliminarProducto.php" method="POST">';
-                                echo '<input type="hidden" name="idProducto" value="' . $producto['idProducto'] . '">';//mover esilos
-                                echo '<button type="submit" class="btn-eliminar" onclick="return confirm(\'¿Seguro que deseas eliminar este producto?\')">Eliminar</button>';
+                                echo '<form action="../../Controller/eliminarProducto.php" method="POST" id="eliminarProductoForm">';
+                                echo '<input type="hidden" name="idProducto" value="' . $producto['idProducto'] . '">';
+                                echo '<button type="button" class="btn-eliminar" onclick="mostrarConfirmacion()">Eliminar</button>';
+                                echo '</form>';
                                 
                                 echo '</form>';
                                 echo '</div>';
@@ -349,17 +350,23 @@ if (!isset($_SESSION['carrito'])) {
 
     <script>
     document.getElementById('enlacePago').addEventListener('click', function(event) {
-        if (!
-            <?php echo json_encode(isset($_SESSION['usuario_nombre']) && $_SESSION['usuario_nombre']); ?>) {
+        if (!<?php echo json_encode(isset($_SESSION['usuario_nombre']) && $_SESSION['usuario_nombre']); ?>) {
             event.preventDefault();
-            var confirmar = confirm(
-                "Para continuar con el pago, debes iniciar sesión. ¿Deseas iniciar sesión ahora?");
-            if (confirmar) {
-                window.location.href = "./login.php";
-            }
+            Swal.fire({
+                title: 'Iniciar Sesión',
+                text: 'Para continuar con el pago, debes iniciar sesión. ¿Deseas iniciar sesión ahora?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, iniciar sesión',
+                cancelButtonText: 'No, cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "./login.php";
+                }
+            });
         }
     });
-    </script>
+</script>
 
     <script>
     // Espera a que el documento esté cargado
@@ -389,6 +396,7 @@ if (!isset($_SESSION['carrito'])) {
     <!-- Script js funcionalidades -->
     <script src="../app/menu.js"></script>
     <script src="../app/busqueda.js"></script>
+    <script src="../app/modalEliminarProducto.js"></script>
 
 
 </body>
