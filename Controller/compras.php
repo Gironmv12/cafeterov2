@@ -20,12 +20,13 @@ $idCompra = $compras->insertarCompra($idUsuario, $montoTotal);
 
 if($idCompra !== false){
 // Insertar detalles de compra para cada producto en el carrito
+    // Insertar detalles de compra para cada producto en el carrito
     foreach ($_SESSION['carrito'] as $producto) {
         $idProducto = $producto['idProducto'];
         $cantidad = $producto['cantidad'];
         $precioCompra = $producto['precio'];
 
-        $compras->insertarDetalleCompra($idCompra, $idProducto, $cantidad, $precioCompra);
+        $resultado = $compras->insertarDetalleCompra($idCompra, $idProducto, $cantidad, $precioCompra);
     }
 
     unset($_SESSION['carrito']);

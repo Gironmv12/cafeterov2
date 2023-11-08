@@ -202,13 +202,10 @@ if (!isset($_SESSION['carrito'])) {
                     <?php
                         // Incluye el archivo metodos.php
                         include '../../Controller/metodos.php';
-
                         // Crea una instancia de la clase Productos
                         $producto = new Productos();
-
                         // Obtiene los productos desde la base de datos
                         $productos = $producto->obtenerProductos();
-
                         // Ahora puedes usar $productos en un bucle foreach
                         foreach ($productos as $reg) {
                             // Verificar si el producto ya está en el carrito
@@ -339,8 +336,6 @@ if (!isset($_SESSION['carrito'])) {
                         <button type="submit" class="boton-minimalista" id="enlacePago"
                             <?php echo empty($_SESSION['carrito']) ? 'disabled' : ''; ?>>Continuar con el pago</button>
                     </form>
-
-
                 </div>
             </div>
 

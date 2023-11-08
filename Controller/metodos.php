@@ -204,8 +204,6 @@ class Carrito{
         }
     }
 
-    
-
     public function agregarAlCarrito($idProducto) {
         // Crea una instancia de la clase Productos
         $producto = new Productos();
@@ -217,7 +215,7 @@ class Carrito{
             if (is_array($productoInfo)) {
                 // Verifica si el producto ya está en el carrito
                 $encontrado = false;
-                foreach ($this->productos as &$productoEnCarrito) {
+                foreach ($_SESSION['carrito'] as &$productoEnCarrito) {
                     if ($productoEnCarrito['idProducto'] == $productoInfo['idProducto']) {
                         // Si el producto ya está en el carrito, aumenta la cantidad si el stock lo permite
                         if ($productoEnCarrito['cantidad'] < $productoInfo['stock']) {
@@ -232,7 +230,7 @@ class Carrito{
                     // Si el producto no estaba en el carrito, agrega uno nuevo si el stock lo permite
                     if ($productoInfo['stock'] > 0) {
                         $productoInfo['cantidad'] = 1;
-                        $this->productos[] = $productoInfo;
+                        $_SESSION['carrito'][] = $productoInfo;
                     }
                 }
             } else {
@@ -242,7 +240,6 @@ class Carrito{
             echo "Producto no encontrado.";
         }
     }
-
     public function actualizarCarrito($productoKey, $accion) {
         // Verifica si la clave del producto es válida
         if (isset($this->productos[$productoKey])) {
@@ -269,38 +266,29 @@ class Compras {
         try {
             $pdo = $this->db->connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-            // Validación de monto
-            if ($montoTotal <= 0) {
-                return false;
-            }
-    
-            // Iniciar transacción
+
             $pdo->beginTransaction();
-    
-            // Insertar idUsuario, montoTotal y la fecha de compra
-            $sqlInsertCompra = "INSERT INTO compras (idUsuario, monto, fechaCompras) 
-                              VALUES (:idUsuario, :montoTotal, NOW())";
-    
+
+            $sqlInsertCompra = "INSERT INTO compras (idUsuario, monto, fechaCompras)
+                                VALUES (:idUsuario, :montoTotal, NOW())";
+
             $stmtInsertCompra = $pdo->prepare($sqlInsertCompra);
             $stmtInsertCompra->bindParam(':idUsuario', $idUsuario);
             $stmtInsertCompra->bindParam(':montoTotal', $montoTotal);
+
             $stmtInsertCompra->execute();
-    
-            // Verificar id insertado
-            $idCompra = $pdo->lastInsertId();
-            if($idCompra == 0){
+
+            if ($stmtInsertCompra->rowCount() == 0) {
                 throw new Exception("Error al insertar compra");
             }
-    
-            // Commit
+
+            $idCompra = $pdo->lastInsertId();
+
             $pdo->commit();
-    
+
             return $idCompra;
         } catch (Exception $e) {
-            // Rollback y manejar excepción
             $pdo->rollback();
-            echo "Error: " . $e->getMessage();
             return false;
         } finally {
             $pdo = null;
@@ -336,12 +324,16 @@ class Compras {
     
             // Validar antes de commit
             if ($stmtInsertDetalle->rowCount() == 0) {
+                // Imprimir error de la consulta
+                var_dump($stmtInsertDetalle->errorInfo());
                 throw new Exception("Error al insertar detalle");
             }
     
             $pdo->commit();
             return true;
         } catch (Exception $e) {
+            // Imprimir excepción
+            var_dump($e->getMessage());
             $pdo->rollback();
             return false;
         } finally {
