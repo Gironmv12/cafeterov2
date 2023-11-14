@@ -24,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Guarda el ID del usuario en la sesión
         $_SESSION['usuario_id'] = $idUsuario;
 
+        // Guarda el idRol del usuario en la sesión
+        $_SESSION['idRol'] = $usuario['idRol'];
+
         $_SESSION['usuario_nombre'] = $usuario['nombre']; // Obtén el nombre del usuario de los datos recuperados
 
         header("Location: ../View/Pages/menu.php");

@@ -70,6 +70,7 @@ if (!isset($_SESSION['carrito'])) {
             <!--Opciones-->
             <div class="opciones">
                 <ul>
+                    <!--Inicio-->
                     <li>
                         <a class="icon" href="../../index.php">
                             <svg width="25" height="25" viewBox="0 0 28 26" fill="none"
@@ -83,6 +84,7 @@ if (!isset($_SESSION['carrito'])) {
                             </svg>
                         </a>
                     </li>
+                    <!--Menu-->
                     <li>
                         <a class="icon" href="menu.php">
                             <svg width="25" height="25" viewBox="0 0 30 30" fill="none"
@@ -93,6 +95,24 @@ if (!isset($_SESSION['carrito'])) {
                             </svg>
                         </a>
                     </li>
+
+                    <?php if(isset($_SESSION['idRol']) && ($_SESSION['idRol'] == 2 || $_SESSION['idRol'] == 1)): ?>
+                        <!--Mis compras-->
+                        <li>
+                            <a class="icon" href="mis_compras.php">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                                width="25" height="25">
+                                    <path
+                                        d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25zM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 116 0h3a.75.75 0 00.75-.75V15z" />
+                                    <path
+                                        d="M8.25 19.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM15.75 6.75a.75.75 0 00-.75.75v11.25c0 .087.015.17.042.248a3 3 0 015.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 00-3.732-10.104 1.837 1.837 0 00-1.47-.725H15.75z" />
+                                    <path d="M19.5 19.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
+                                </svg>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    
+                    <!--Reseñas-->
                     <li>
                         <a class="icon" href="reseñas.php">
                             <svg width="25" height="25" viewBox="0 0 28 26" fill="none"
@@ -106,6 +126,7 @@ if (!isset($_SESSION['carrito'])) {
                             </svg>
                         </a>
                     </li>
+                    <!--Contacto-->
                     <li>
                         <a class="icon" href="contacto.php">
                             <svg width="25" height="25" viewBox="0 0 22 27" fill="none"
@@ -116,13 +137,62 @@ if (!isset($_SESSION['carrito'])) {
                             </svg>
                         </a>
                     </li>
+
+                    <?php if(isset($_SESSION['idRol']) && $_SESSION['idRol'] == 1):?>
+                    <!--Administrador Catalogo-->
+                    <li>
+                        <a class="icon" href="admin_productos.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="25"
+                                height="25">
+                                <path fillRule="evenodd"
+                                    d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                                    clipRule="evenodd" fill="White" />
+                            </svg>
+
+                        </a>
+                    </li>
+                    <!--Administrador Usuarios-->
+                    <li>
+                        <a class="icon" href="admin_usuarios.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="25"
+                                height="25">
+                                <path fill-rule="evenodd"
+                                    d="M8.25 6.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM15.75 9.75a3 3 0 116 0 3 3 0 01-6 0zM2.25 9.75a3 3 0 116 0 3 3 0 01-6 0zM6.31 15.117A6.745 6.745 0 0112 12a6.745 6.745 0 016.709 7.498.75.75 0 01-.372.568A12.696 12.696 0 0112 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 01-.372-.568 6.787 6.787 0 011.019-4.38z"
+                                    clip-rule="evenodd" />
+                                <path
+                                    d="M5.082 14.254a8.287 8.287 0 00-1.308 5.135 9.687 9.687 0 01-1.764-.44l-.115-.04a.563.563 0 01-.373-.487l-.01-.121a3.75 3.75 0 013.57-4.047zM20.226 19.389a8.287 8.287 0 00-1.308-5.135 3.75 3.75 0 013.57 4.047l-.01.121a.563.563 0 01-.373.486l-.115.04c-.567.2-1.156.349-1.764.441z" />
+                            </svg>
+
+                        </a>
+                    </li>
+                    <!--Administrador Pedidos-->
+                    <li>
+                        <a class="icon" href="modulo_pedidos.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="25"
+                                height="25">
+                                <path d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z" />
+                                <path fill-rule="evenodd"
+                                    d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                        </a>
+                    </li>
+
+                    <?php endif; ?>
                 </ul>
 
                 <div class="user">
 
                     <?php
                         if (isset($_SESSION['usuario_nombre'])) {
-                            echo '<div class="nombre-usuario">' . $_SESSION['usuario_nombre'] . '</div>';
+                            if ($_SESSION['idRol'] == 1) {
+                                echo '<div class="nombre-usuario">Administrador</div><br>';
+                                echo '<div class="nombre-usuario">' . $_SESSION['usuario_nombre'] . '</div>';
+                            } elseif ($_SESSION['idRol'] == 2) {
+                                echo '<div class="nombre-usuario">Cliente</div><br>';
+                                echo '<div class="nombre-usuario">' . $_SESSION['usuario_nombre'] . '</div>';
+                            }
                             echo '<div class="menu-desplegable">
                                     <div id="opciones" class="oculto">
                                         <a href="../../Controller/logout.php"></a>
@@ -361,7 +431,7 @@ if (!isset($_SESSION['carrito'])) {
             });
         }
     });
-</script>
+    </script>
 
     <script>
     // Espera a que el documento esté cargado
@@ -382,7 +452,8 @@ if (!isset($_SESSION['carrito'])) {
             if (<?php echo empty($_SESSION['carrito']) ? 'true' : 'false'; ?>) {
                 event.preventDefault();
                 alert(
-                    'El carrito de compras está vacío. Agrega productos antes de continuar con el pago.');
+                    'El carrito de compras está vacío. Agrega productos antes de continuar con el pago.'
+                );
             }
         });
     });

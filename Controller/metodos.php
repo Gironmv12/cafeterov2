@@ -11,31 +11,31 @@ class Usuarios{
     {
         $this->db= new DB();
     }
-    public function registrarUsuarios($nombre, $apellido, $correo,$clave){
+    public function registrarUsuarios($nombre, $apellido, $correo, $clave){
         try{
             $pdo = $this->db->connect();
-    
+
             // Verificar si el correo ya existe en la base de datos
             $sql_check = "SELECT COUNT(*) FROM usuarios WHERE correo = :correo";
             $stmt_check = $pdo->prepare($sql_check);
             $stmt_check->bindParam(':correo', $correo);
             $stmt_check->execute();
-    
+
             $count = $stmt_check->fetchColumn();
-    
+
             if ($count > 0) {
                 // El correo ya está en uso, no permitir el registro
                 return false;
             }
-    
+
             // Si el correo no existe, proceder con la inserción
-            $sql = "INSERT INTO usuarios (nombre, apellido, correo, clave) VALUES (:nombre, :apellido, :correo, :clave)";
+            $sql = "INSERT INTO usuarios (nombre, apellido, correo, clave, idRol) VALUES (:nombre, :apellido, :correo, :clave, 2)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellido', $apellido);
             $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':clave', $clave);
-    
+
             // Ejecutamos la consulta
             $stmt->execute();
             // Cerramos la conexión
@@ -59,10 +59,15 @@ class Usuarios{
             $stmt->execute();
 
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-            
 
             // Cerrar la conexión
             $pdo = null;
+
+            // Iniciar la sesión y almacenar el idRol en la sesión
+            if ($usuario) {
+                session_start();
+                $_SESSION['idRol'] = $usuario['idRol'];
+            }
 
             return $usuario; // Devolver los datos del usuario si la autenticación es exitosa
 
@@ -93,6 +98,94 @@ class Usuarios{
             return false;
         }
     }
+
+    public function CrearUsuario($nombre, $apellido, $correo,$clave, $rol){
+        try{
+            $pdo = $this->db->connect();
+    
+            // Verificar si el correo ya existe en la base de datos
+            $sql_check = "SELECT COUNT(*) FROM usuarios WHERE correo = :correo";
+            $stmt_check = $pdo->prepare($sql_check);
+            $stmt_check->bindParam(':correo', $correo);
+            $stmt_check->execute();
+    
+            $count = $stmt_check->fetchColumn();
+    
+            if ($count > 0) {
+                // El correo ya está en uso, no permitir el registro
+                return false;
+            }
+    
+            // Si el correo no existe, proceder con la inserción
+            $sql = "INSERT INTO usuarios (nombre, apellido, correo, clave, idRol) VALUES (:nombre, :apellido, :correo, :clave, :rol)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':apellido', $apellido);
+            $stmt->bindParam(':correo', $correo);
+            $stmt->bindParam(':clave', $clave);
+            $stmt->bindParam(':rol', $rol);
+    
+            // Ejecutamos la consulta
+            $stmt->execute();
+            // Cerramos la conexión
+            $pdo = null;
+            return true; // Registro exitoso
+        } catch(PDOException $e){
+            return false; // Error en el registro
+        }
+
+    }
+
+    public function actualizarUsuario($idUsuario, $nombre, $apellido, $correo, $rol){
+        try{
+            $pdo = $this->db->connect();
+
+            // Verificar si el correo ya existe en la base de datos
+            $sql_check = "SELECT COUNT(*) FROM usuarios WHERE correo = :correo AND idUsuario != :idUsuario";
+            $stmt_check = $pdo->prepare($sql_check);
+            $stmt_check->bindParam(':correo', $correo);
+            $stmt_check->bindParam(':idUsuario', $idUsuario);
+            $stmt_check->execute();
+
+            $count = $stmt_check->fetchColumn();
+
+            if ($count > 0) {
+                // El correo ya está en uso por otro usuario, no permitir la actualización
+                return false;
+            }
+
+            // Si el correo no existe, proceder con la actualización
+            $sql = "UPDATE usuarios SET nombre = :nombre, apellido = :apellido, correo = :correo,  idRol = :rol WHERE idUsuario = :idUsuario";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':idUsuario', $idUsuario);
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':apellido', $apellido);
+            $stmt->bindParam(':correo', $correo);
+            $stmt->bindParam(':rol', $rol);
+
+            // Ejecutamos la consulta
+            $stmt->execute();
+            // Cerramos la conexión
+            $pdo = null;
+            return true; // Actualización exitosa
+        } catch(PDOException $e){
+            return false; // Error en la actualización
+        }
+    }
+
+    public function EliminarUsuario($idUsuario){
+        try{
+            $pdo = $this->db->connect();
+            $sql = "DELETE FROM usuarios WHERE idUsuario = :idUsuario";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':idUsuario', $idUsuario);
+            $stmt->execute();
+            $pdo = null;
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
     
 }
 
@@ -109,7 +202,7 @@ class Productos{
         try {
             $pdo = $this->db->connect();
 
-            $sql = "SELECT idProducto, nombre, descripcion, image, precio FROM productos WHERE activo = 1";
+            $sql = "SELECT idProducto, nombre, descripcion, image, precio, stock FROM productos WHERE activo = 1";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
@@ -124,6 +217,7 @@ class Productos{
                     'descripcion' => $row['descripcion'],
                     'image' => $row['image'],
                     'precio' => $row['precio'],
+                    'stock' => $row['stock'],
                 );
             }
 
@@ -187,7 +281,104 @@ class Productos{
         }
     }
 
-    
+    public function agregarProducto($nombre, $descripcion, $precio, $image, $stock, $activo = 1) {
+        try {
+            $pdo = $this->db->connect();
+
+            $sql = "INSERT INTO productos (nombre, descripcion, precio, image, stock, activo) VALUES (:nombre, :descripcion, :precio, :image, :stock , :activo)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':descripcion', $descripcion);
+            $stmt->bindParam(':precio', $precio);
+            $stmt->bindParam(':image', $image);
+            $stmt->bindParam(':stock', $stock);
+            $stmt->bindParam(':activo', $activo);
+
+            // Ejecutamos la consulta
+            $stmt->execute();
+            // Cerramos la conexión
+            $pdo = null;
+            // Devolvemos true para indicar que la inserción fue exitosa
+            return true;
+        } catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            // Devolvemos false para indicar que hubo un error
+            return false;
+        }
+    }
+
+    public function editarProducto($idProducto, $nombre, $descripcion, $precio, $image, $stock) {
+        try {
+            $pdo = $this->db->connect();
+
+            if ($image != "") {
+                $sql = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio, image = :image, stock = :stock WHERE idProducto = :idProducto";
+            } else {
+                $sql = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio, stock = :stock WHERE idProducto = :idProducto";
+            }
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':idProducto', $idProducto);
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':descripcion', $descripcion);
+            $stmt->bindParam(':precio', $precio);
+            if ($image != "") {
+                $stmt->bindParam(':image', $image);
+            }
+            $stmt->bindParam(':stock', $stock);
+
+            // Ejecutamos la consulta
+            $stmt->execute();
+
+            // Verificamos si se actualizó algún producto
+            if ($stmt->rowCount() > 0) {
+                // Cerramos la conexión
+                $pdo = null;
+                // Devolvemos true para indicar que la actualización fue exitosa
+                return true;
+            } else {
+                // Cerramos la conexión
+                $pdo = null;
+                // Devolvemos false para indicar que no se actualizó ningún producto
+                return false;
+            }
+        } catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            // Devolvemos false para indicar que hubo un error
+            return false;
+        }
+    }
+
+    public function eliminarProducto($idProducto) {
+        try {
+            $pdo = $this->db->connect();
+
+            $sql = "DELETE FROM productos WHERE idProducto = :idProducto";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':idProducto', $idProducto);
+
+            // Ejecutamos la consulta
+            $stmt->execute();
+
+            // Verificamos si se eliminó algún producto
+            if ($stmt->rowCount() > 0) {
+                // Cerramos la conexión
+                $pdo = null;
+                // Devolvemos true para indicar que la eliminación fue exitosa
+                return true;
+            } else {
+                // Cerramos la conexión
+                $pdo = null;
+                // Devolvemos false para indicar que no se eliminó ningún producto
+                return false;
+            }
+        } catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            // Devolvemos false para indicar que hubo un error
+            return false;
+        }
+    }
+
 }
 
 class Carrito{
@@ -339,6 +530,61 @@ class Compras {
         } finally {
             $pdo = null;
         }
+    }
+
+    public function obtenerCompras(){
+        try{
+            $pdo = $this->db->connect();
+            $sql = "SELECT compras.idCompras, compras.fechaCompras, compras.monto, detalle_compra.cantidad, detalle_compra.precioCompra, productos.nombre, usuarios.nombre as nombreUsuario, usuarios.apellido
+                FROM compras
+                INNER JOIN detalle_compra ON compras.idCompras = detalle_compra.idCompras
+                INNER JOIN productos ON detalle_compra.idProducto = productos.idProducto
+                INNER JOIN usuarios ON compras.idUsuario = usuarios.idUsuario
+                ORDER BY compras.fechaCompras DESC";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        // Obtenemos todas las compras
+        $compras = $stmt->fetchAll();
+
+        // Cerramos la conexión
+        $pdo = null;
+
+        return $compras;
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+    }
+
+    public function obtenerComprasUsuarios($idUsuario){
+        try {
+            $pdo = $this->db->connect();
+    
+            $sql = "SELECT compras.idCompras, compras.fechaCompras, compras.monto, detalle_compra.cantidad, detalle_compra.precioCompra, productos.nombre, productos.image
+                FROM compras
+                INNER JOIN detalle_compra ON compras.idCompras = detalle_compra.idCompras
+                INNER JOIN productos ON detalle_compra.idProducto = productos.idProducto
+                WHERE compras.idUsuario = :idUsuario
+                ORDER BY compras.fechaCompras DESC";
+    
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':idUsuario', $idUsuario);
+            $stmt->execute();
+    
+            // Obtenemos todas las compras del usuario
+            $compras = $stmt->fetchAll();
+    
+            // Cerramos la conexión
+            $pdo = null;
+    
+            return $compras;
+        } catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            return false;
+        }
+
     }
     
 }

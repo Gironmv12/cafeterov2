@@ -413,7 +413,7 @@ input:hover {
     align-items: center;
     font-size: 15px;
     color: white;
-    margin-top: 230%;
+    /*margin-top: 230%;*/
 }
 
 /* Estilos boton login */

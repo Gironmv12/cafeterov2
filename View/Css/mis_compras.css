@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+.app-container{
+    padding: 1rem;
+    background-color: #1F1D2B;
+}
+
+.app-container .title{
+    padding: 1rem;
+    background-color: #252836;
+    border-radius: 8px;
+}
+
+.app-container .title h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #2EC76D;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #252836;
+}
+
+.seguirComprando{
+    margin-top: 20px;
+
+}
+.seguirComprando a {
+    display: inline-block;
+    background-color: #2EC76D;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.seguirComprando a:hover {
+    background-color: #249c58;
+}
+
+html::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: #252836;
+}
+html::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #2EC76D;
+}
