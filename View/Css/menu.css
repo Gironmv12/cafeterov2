@@ -12,7 +12,6 @@
 @font-face {
     font-family: 'SubjectivitySerif-Thin-Italic';
     src: url('../Fonts/SubjectivitySerif-Thin-Italic.otf') format('truetype');
-    ;
 }
 
 /* Estilos y diseño de Scroll */
@@ -410,6 +409,7 @@ input:hover {
 
 /* Estilos de Nombre de usuario */
 .user {
+    margin-top: 65%;
     align-items: center;
     font-size: 15px;
     color: white;
@@ -426,6 +426,10 @@ input:hover {
     transition: border-color 0.3s ease;
 }
 
+.login{
+    margin-top: 300%;
+}
+
 .login a:hover {
     border-color: #29B864;
 }
@@ -433,14 +437,13 @@ input:hover {
 /* Estilos nombre de usuario */
 .nombre-usuario {
     display: flex;
-    margin-top: -10px;
-    padding-bottom: 7px;
     align-items: center;
     font-size: 15px;
     color: white;
 }
 
 .menu-desplegable a::before {
+    margin-top: 10px;
     content: url('../svg/arrow-right-on-rectangle.svg');
     display: inline-block;
     margin-left: 45px;

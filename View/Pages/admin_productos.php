@@ -9,8 +9,16 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- icono de la página -->
+    <link rel="icon" href="../images/icono.png" type="png">
+
+    <!-- Enlace a estilos index.css -->
+    <link rel=" stylesheet" href="../Css/admin_productos.css">
+
+    <!-- Nombre de la página -->
     <title>Agregar Productos</title>
-    <link rel="stylesheet" href="../Css/admin_productos.css">
+    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -20,7 +28,7 @@ session_start();
         <sidebar>
             <div class="logo">
                 <img src="../images/logo-index.png" alt="logo" width="50">
-                <h4>Cafetero</h4>
+                <h4>Café-tero</h4>
             </div>
             <nav>
                 <ul>
@@ -173,33 +181,33 @@ session_start();
 
 
     <script>
-    function editarProducto(id, nombre, descripcion, precio, image, stock) {
-        document.getElementById('editarProducto').style.display = 'block';
-        document.getElementById('editarId').value = id;
-        document.getElementById('editarNombre').value = nombre;
-        document.getElementById('editarDescripcion').value = descripcion;
-        document.getElementById('editarPrecio').value = precio;
-        document.getElementById('editarImage').value = image;
-        document.getElementById('editarStock').value = stock;
-    }
+        function editarProducto(id, nombre, descripcion, precio, image, stock) {
+            document.getElementById('editarProducto').style.display = 'block';
+            document.getElementById('editarId').value = id;
+            document.getElementById('editarNombre').value = nombre;
+            document.getElementById('editarDescripcion').value = descripcion;
+            document.getElementById('editarPrecio').value = precio;
+            document.getElementById('editarImage').value = image;
+            document.getElementById('editarStock').value = stock;
+        }
     </script>
 
     <script>
-    function confirmarEliminar(idProducto) {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "No podrás revertir esto!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, bórralo!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "../../Controller/eliminar_producto.php?id=" + idProducto;
-            }
-        })
-    }
+        function confirmarEliminar(idProducto) {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, bórralo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "../../Controller/eliminar_producto.php?id=" + idProducto;
+                }
+            })
+        }
     </script>
 
 </body>

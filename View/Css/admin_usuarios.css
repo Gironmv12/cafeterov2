@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Estilos para la fuente personalizada */
+@font-face {
+    font-family: 'Subjectivity-Regular';
+    src: url('../Fonts/Subjectivity-Regular.otf') format('truetype');
+}
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +16,7 @@ html {
     scroll-behavior: smooth;
 }
 ul {
+    margin-top: 38px;
     list-style: none;
 }
 a{
@@ -41,6 +48,7 @@ a{
 }
 
 .app sidebar .logo h4{
+    font-family: 'Subjectivity-Regular';    
     font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
@@ -205,6 +213,7 @@ tr:nth-child(even) {
 }
 
 .admin-title {
+    margin-top: 140%;
     font-size: 14px;
     color: #fff;
     margin-bottom: 10px;

@@ -15,8 +15,16 @@ $compras = $metodos->obtenerComprasUsuarios($idUsuario);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis compras</title>
+
+    <!-- icono de la página -->
+    <link rel="icon" href="../images/icono.png" type="png">
+
+    <!-- Enlace a estilos index.css -->
     <link rel="stylesheet" href="../Css/mis_compras.css">
+
+    <!-- Título de la página -->
+    <title>Mis compras</title>
+    
 </head>
 
 <body>

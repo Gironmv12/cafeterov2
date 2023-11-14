@@ -7,8 +7,16 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrar Usuarios </title>
+
+    <!-- icono de la página -->
+    <link rel="icon" href="../images/icono.png" type="png">
+
+    <!-- Enlace a estilos index.css -->
     <link rel="stylesheet" href="../Css/admin_usuarios.css">
+
+    <!-- Título de la página -->
+    <title>Administrar Usuarios </title>
+    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -18,7 +26,7 @@ session_start();
     <sidebar>
             <div class="logo">
                 <img src="../images/logo-index.png" alt="logo" width="50">
-                <h4>Cafetero</h4>
+                <h4>Café-tero</h4>
             </div>
             <nav>
                 <ul>
