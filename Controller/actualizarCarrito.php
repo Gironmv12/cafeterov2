@@ -3,6 +3,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // Inicia la sesión si aún no se ha iniciado
+/**
+ * Inicia la sesión y actualiza el carrito según la acción y la clave del producto recibidos por POST.
+ * 
+ * @return void
+ */
 session_start();
 include_once('./metodos.php');
 

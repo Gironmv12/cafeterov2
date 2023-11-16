@@ -1,6 +1,9 @@
 $(document).ready(function() {
     // Cuando se presiona una tecla en el campo de búsqueda
     $("#busqueda-input").on("keyup", function() {
+        /**
+         * @type {string}
+         */
         var query = $(this).val();
 
         // Realizar una solicitud AJAX para buscar productos

@@ -2,6 +2,16 @@
 session_start();
 require_once('../Controller/metodos.php');
 
+/**
+ * Verifica si el formulario se ha enviado y registra un nuevo usuario en la base de datos.
+ *
+ * @param string $_POST["nombre"] El nombre del usuario.
+ * @param string $_POST["apellido"] El apellido del usuario.
+ * @param string $_POST["email"] El correo electrónico del usuario.
+ * @param string $_POST["clave"] La contraseña del usuario.
+ *
+ * @return bool Retorna true si el registro fue exitoso, de lo contrario retorna false.
+ */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si el formulario se ha enviado
 

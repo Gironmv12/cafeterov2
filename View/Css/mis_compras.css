@@ -12,7 +12,6 @@ html {
 .app-container{
     padding: 1rem;
     background-color: #1F1D2B;
-    height: 100vh;
 }
 
 .app-container .title{

@@ -2,6 +2,15 @@
 session_start();
 require_once('../Controller/metodos.php');
 
+/**
+ * Verifica si el formulario se ha enviado, recoge los datos del formulario, crea una instancia de la clase Usuarios,
+ * llama al método para iniciar sesión, guarda el ID del usuario en la sesión y redirige a la página de menú si el inicio
+ * de sesión es exitoso. Si el inicio de sesión falla, guarda un mensaje de error en la sesión y redirige a la página de inicio de sesión.
+ *
+ * @param string $_POST["email"] El correo electrónico del usuario.
+ * @param string $_POST["clave"] La contraseña del usuario.
+ * @return void
+ */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si el formulario se ha enviado
 

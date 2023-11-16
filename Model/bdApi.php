@@ -1,4 +1,13 @@
 <?php
+/**
+ * Clase para manejar la conexión a la base de datos.
+ *
+ * Esta clase permite conectarse a una base de datos MySQL utilizando PDO.
+ * Los parámetros de conexión son definidos en el constructor de la clase.
+ * La función connect() retorna un objeto PDO que puede ser utilizado para realizar consultas a la base de datos.
+ *
+ * @package bdApi
+ */
 class DB{
     private $host;
     private $db;

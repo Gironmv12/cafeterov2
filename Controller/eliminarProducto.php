@@ -2,6 +2,15 @@
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+/**
+ * Este archivo se encarga de eliminar un producto del carrito de compras.
+ * Si el producto existe en la sesión del carrito, se elimina y se redirige de vuelta a la página del carrito.
+ * Si la sesión del carrito no existe, se muestra un mensaje de depuración.
+ *
+ * @param int $_POST['idProducto'] El ID del producto a eliminar del carrito.
+ *
+ * @return void
+ */
 session_start();
 
 if (isset($_POST['idProducto'])) {

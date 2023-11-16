@@ -1,6 +1,18 @@
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+/**
+ * Agrega un producto a la base de datos.
+ *
+ * @param string $nombre Nombre del producto.
+ * @param string $descripcion Descripción del producto.
+ * @param float $precio Precio del producto.
+ * @param string $nombreImagen Nombre de la imagen del producto.
+ * @param int $stock Cantidad de stock del producto.
+ * @param int $activo Estado del producto (1 = activo, 0 = inactivo).
+ *
+ * @return bool Retorna true si el producto se agregó correctamente, de lo contrario retorna false.
+ */
 session_start();
 require_once('../Controller/metodos.php');
 

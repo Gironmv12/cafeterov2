@@ -1,5 +1,13 @@
 <?php
 // Incluye el archivo metodos.php para poder utilizar la clase Productos y sus métodos
+/**
+ * Este archivo se encarga de buscar productos en la base de datos a través de una consulta POST.
+ * Si se encuentran resultados, los muestra en una tarjeta con su imagen, nombre, descripción y precio.
+ * Si no se encuentran resultados, muestra un mensaje de error y una imagen de error.
+ *
+ * @param string $_POST['query'] La consulta de búsqueda enviada a través de POST.
+ * @return void
+ */
 include('./metodos.php');
 
 // Verifica si se ha enviado una consulta a través de POST
@@ -33,3 +41,5 @@ if (isset($_POST['query'])) {
     // Maneja el caso en el que no se envió una consulta
     echo 'No se ha proporcionado una consulta.';
 }
+?>
+

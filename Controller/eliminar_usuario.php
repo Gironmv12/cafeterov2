@@ -1,4 +1,11 @@
 <?php
+/**
+ * Inicia la sesión y elimina un usuario de la base de datos.
+ *
+ * @param int $idUsuario El id del usuario a eliminar.
+ *
+ * @return bool Retorna true si el usuario fue eliminado exitosamente, de lo contrario retorna false.
+ */
 session_start();
 require_once('../Controller/metodos.php');
 

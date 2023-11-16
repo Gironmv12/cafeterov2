@@ -1,4 +1,8 @@
 <?php
+/**
+ * Establece la conexión con la base de datos MySQL.
+ * @global mysqli $conexion Variable global que almacena la conexión a la base de datos.
+ */
 global $conexion;
 //conexionweb.php
 $servidor = "localhost";

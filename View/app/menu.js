@@ -1,4 +1,8 @@
 // Función para obtener el saludo según la hora
+/**
+ * Obtiene un saludo dependiendo de la hora actual.
+ * @returns {string} Saludo correspondiente a la hora actual.
+ */
 function obtenerSaludo() {
     // Obtener la hora actual
     const horaActual = new Date().getHours();

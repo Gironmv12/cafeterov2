@@ -3,7 +3,15 @@ require_once __DIR__ . '/../Model/bdApi.php';
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-//CLASE USUARIOS
+/**
+ * Clase Usuarios - Contiene métodos para registrar, autenticar, actualizar y eliminar usuarios en la base de datos.
+ * Clse Productos - Contiene metodos para obtener, buscar, agregar, editar y eliminar productos en la base de datos.
+ * Clase Carrito - Contiene métodos para agregar y actualizar productos en el carrito de compras.
+ * Clase Compras - Contiene métodos para insertar compras y detalles de compra en la base de datos.
+ *
+ * @author Francisco Javier Lopez Giron & Pablo Gamaliel Martínez González 
+ * @version 1.0
+ */
 class Usuarios{
     private $db;
 
@@ -11,6 +19,16 @@ class Usuarios{
     {
         $this->db= new DB();
     }
+    /**
+     * Registra un nuevo usuario en la base de datos.
+     *
+     * @param string $nombre Nombre del usuario.
+     * @param string $apellido Apellido del usuario.
+     * @param string $correo Correo electrónico del usuario.
+     * @param string $clave Clave de acceso del usuario.
+     *
+     * @return bool Retorna true si el registro fue exitoso, de lo contrario retorna false.
+     */
     public function registrarUsuarios($nombre, $apellido, $correo, $clave){
         try{
             $pdo = $this->db->connect();
@@ -46,6 +64,13 @@ class Usuarios{
         }
     }
 
+    /**
+     * Inicia sesión de usuario.
+     *
+     * @param string $correo Correo electrónico del usuario.
+     * @param string $clave Clave de acceso del usuario.
+     * @return array|false Devuelve los datos del usuario si la autenticación es exitosa, de lo contrario devuelve false.
+     */
     public function iniciarSesion($correo, $clave){
         try{
             $pdo = $this->db->connect();
@@ -76,6 +101,12 @@ class Usuarios{
         }
     }
 
+    /**
+     * Obtiene el ID del usuario a partir de su correo electrónico.
+     *
+     * @param string $correo Correo electrónico del usuario.
+     * @return mixed Devuelve el ID del usuario si se encuentra en la base de datos, de lo contrario devuelve false.
+     */
     public function obtenerIdUsuario($correo){
         try{
             $pdo = $this->db->connect();
@@ -99,6 +130,16 @@ class Usuarios{
         }
     }
 
+    /**
+     * Crea un nuevo usuario en la base de datos.
+     *
+     * @param string $nombre El nombre del usuario.
+     * @param string $apellido El apellido del usuario.
+     * @param string $correo El correo electrónico del usuario.
+     * @param string $clave La contraseña del usuario.
+     * @param int $rol El ID del rol del usuario.
+     * @return bool Retorna verdadero si el registro es exitoso, falso si hay un error o el correo ya está en uso.
+     */
     public function CrearUsuario($nombre, $apellido, $correo,$clave, $rol){
         try{
             $pdo = $this->db->connect();
@@ -136,6 +177,16 @@ class Usuarios{
 
     }
 
+    /**
+     * Actualiza un usuario en la base de datos.
+     *
+     * @param int $idUsuario El id del usuario a actualizar.
+     * @param string $nombre El nuevo nombre del usuario.
+     * @param string $apellido El nuevo apellido del usuario.
+     * @param string $correo El nuevo correo del usuario.
+     * @param int $rol El nuevo rol del usuario.
+     * @return bool Retorna true si la actualización fue exitosa, false en caso contrario.
+     */
     public function actualizarUsuario($idUsuario, $nombre, $apellido, $correo, $rol){
         try{
             $pdo = $this->db->connect();
@@ -173,6 +224,12 @@ class Usuarios{
         }
     }
 
+    /**
+     * Elimina un usuario de la base de datos.
+     *
+     * @param int $idUsuario El id del usuario a eliminar.
+     * @return bool Retorna true si se eliminó correctamente, false en caso contrario.
+     */
     public function EliminarUsuario($idUsuario){
         try{
             $pdo = $this->db->connect();
@@ -198,6 +255,11 @@ class Productos{
         $this->db= new DB();
     }
 
+    /**
+     * Obtiene todos los productos activos de la base de datos.
+     *
+     * @return array|false Un arreglo de productos si la consulta es exitosa, o false si hay un error.
+     */
     public function obtenerProductos() {
         try {
             $pdo = $this->db->connect();
@@ -231,6 +293,12 @@ class Productos{
         }
     }
 
+    /**
+     * Busca productos en la base de datos que coincidan con una consulta dada.
+     *
+     * @param string $query La consulta a buscar.
+     * @return array|false Un array de productos que coinciden con la consulta o false si ocurre un error.
+     */
     public function buscarProductos($query){
         try{
             $pdo = $this->db->connect();
@@ -260,6 +328,13 @@ class Productos{
 
     }
 
+    /**
+     * Obtiene un producto por su ID.
+     *
+     * @param int $idProducto El ID del producto a buscar.
+     *
+     * @return mixed Devuelve un array con los datos del producto encontrado o false si no se encuentra.
+     */
     public function obtenerProductoPorID($idProducto) {
         try {
             $pdo = $this->db->connect();
@@ -281,6 +356,17 @@ class Productos{
         }
     }
 
+    /**
+     * Agrega un producto a la base de datos.
+     *
+     * @param string $nombre Nombre del producto.
+     * @param string $descripcion Descripción del producto.
+     * @param float $precio Precio del producto.
+     * @param string $image Ruta de la imagen del producto.
+     * @param int $stock Cantidad de stock del producto.
+     * @param int $activo (opcional) Indica si el producto está activo o no. Por defecto es 1 (activo).
+     * @return bool Devuelve true si la inserción fue exitosa, false en caso contrario.
+     */
     public function agregarProducto($nombre, $descripcion, $precio, $image, $stock, $activo = 1) {
         try {
             $pdo = $this->db->connect();
@@ -307,6 +393,17 @@ class Productos{
         }
     }
 
+    /**
+     * Actualiza un producto en la base de datos.
+     *
+     * @param int $idProducto El ID del producto a actualizar.
+     * @param string $nombre El nuevo nombre del producto.
+     * @param string $descripcion La nueva descripción del producto.
+     * @param float $precio El nuevo precio del producto.
+     * @param string $image La nueva imagen del producto.
+     * @param int $stock La nueva cantidad de stock del producto.
+     * @return bool Devuelve true si la actualización fue exitosa, false en caso contrario.
+     */
     public function editarProducto($idProducto, $nombre, $descripcion, $precio, $image, $stock) {
         try {
             $pdo = $this->db->connect();
@@ -349,6 +446,12 @@ class Productos{
         }
     }
 
+    /**
+     * Elimina un producto de la base de datos.
+     *
+     * @param int $idProducto El id del producto a eliminar.
+     * @return bool Devuelve true si la eliminación fue exitosa, false si no se eliminó ningún producto o hubo un error.
+     */
     public function eliminarProducto($idProducto) {
         try {
             $pdo = $this->db->connect();
@@ -385,6 +488,11 @@ class Carrito{
     private $db;
     private $productos;
 
+    /**
+     * Constructor de la clase Metodos.
+     * Crea una instancia de la clase DB y asigna la referencia del carrito de compras a la variable $productos.
+     * Si el carrito de compras no es un array, lo inicializa como tal.
+     */
     public function __construct(){
         $this->db= new DB();
 
@@ -395,6 +503,13 @@ class Carrito{
         }
     }
 
+    /**
+     * Agrega un producto al carrito de compras.
+     *
+     * @param int $idProducto El ID del producto a agregar.
+     *
+     * @return void
+     */
     public function agregarAlCarrito($idProducto) {
         // Crea una instancia de la clase Productos
         $producto = new Productos();
@@ -431,6 +546,13 @@ class Carrito{
             echo "Producto no encontrado.";
         }
     }
+    /**
+     * Actualiza la cantidad de un producto en el carrito de compras.
+     *
+     * @param int $productoKey La clave del producto en el carrito.
+     * @param string $accion La acción a realizar ('restar' o 'sumar').
+     * @return void
+     */
     public function actualizarCarrito($productoKey, $accion) {
         // Verifica si la clave del producto es válida
         if (isset($this->productos[$productoKey])) {
@@ -453,6 +575,13 @@ class Compras {
         $this->db = new DB();
     }
 
+    /**
+     * Inserta una nueva compra en la base de datos.
+     *
+     * @param int $idUsuario El ID del usuario que realizó la compra.
+     * @param float $montoTotal El monto total de la compra.
+     * @return int|false El ID de la compra insertada o false si hubo un error.
+     */
     public function insertarCompra($idUsuario, $montoTotal) {
         try {
             $pdo = $this->db->connect();
@@ -488,6 +617,15 @@ class Compras {
     
     
 
+    /**
+     * Inserta un detalle de compra en la base de datos.
+     *
+     * @param int $idCompra El id de la compra.
+     * @param int $idProducto El id del producto.
+     * @param int $cantidad La cantidad de productos comprados.
+     * @param float $precioCompra El precio de compra del producto.
+     * @return bool Retorna true si se insertó el detalle de compra correctamente, de lo contrario retorna false.
+     */
     public function insertarDetalleCompra($idCompra, $idProducto, $cantidad, $precioCompra) {
         try {
             // Validaciones
@@ -558,6 +696,12 @@ class Compras {
     }
     }
 
+    /**
+     * Obtiene todas las compras realizadas por un usuario específico.
+     *
+     * @param int $idUsuario El ID del usuario del cual se quieren obtener las compras.
+     * @return array|false Un array con todas las compras realizadas por el usuario, o false si ocurre un error.
+     */
     public function obtenerComprasUsuarios($idUsuario){
         try {
             $pdo = $this->db->connect();
