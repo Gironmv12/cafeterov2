@@ -16,6 +16,7 @@ session_start();
 
     <!-- Enlace a estilos index.css -->
     <link rel="stylesheet" href="../Css/pago.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Título de la página -->
     <title>Pago</title>
@@ -177,14 +178,30 @@ session_start();
                         </p>
                     </div>
 
-                    <div class="btn-pagar">
-                        <a class="btn-pago" href="#"> finalizar pago</a>
+                    <div class="btn-pagar center-button">
+                        <button id="btn-pago" class="btn-pago">Finalizar pago</button>
                     </div>
+                    <script>
+                    document.getElementById('btn-pago').addEventListener('click', function() {
+                        swal({
+                                title: "Compra finalizada",
+                                text: "Tu compra ha concluido exitosamente",
+                                icon: "success",
+                                buttons: true,
+                                dangerMode: false,
+                                customClass: {
+                                    confirmButton: 'btn-swal',
+                                    cancelButton: 'btn-swal-cancel'
+                                }
+                            })
+                            .then((willGoToPurchases) => {
+                                if (willGoToPurchases) {
+                                    window.location.href = "menu.php";
+                                }
+                            });
+                    });
+                    </script>
 
-                    <div class="txt-compra">
-                        <p>Tu compra es segura, nos encargaremos de hacer llegar el producto que solicitaste, ¡Gracias por confiar en nosotros!, Esperamos verte de nuevo.
-                        </p>
-                    </div>
 
                 </div>
             </div>

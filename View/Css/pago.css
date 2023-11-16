@@ -25,6 +25,7 @@ html::-webkit-scrollbar {
 html::-webkit-scrollbar-track {
     background-color: #252836;
 }
+
 html::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: #2EC76D;
@@ -40,7 +41,8 @@ html::-webkit-scrollbar-thumb {
 ul {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
     color: #fff;
     font-size: 0.9rem;
@@ -52,23 +54,23 @@ a{
     grid-template-rows: 1fr;
 }
 
-.app sidebar{
+.app sidebar {
     background-color: #252836;
     color: #fff;
     padding: 1rem;
-    width:  100%;
+    width: 100%;
     height: 100vh;
     position: sticky;
     top: 0;
 }
 
-.app sidebar .logo{
+.app sidebar .logo {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.app sidebar .logo h4{
+.app sidebar .logo h4 {
     font-family: 'Subjectivity-Regular';
     font-size: 1.5rem;
     font-weight: 600;
@@ -76,11 +78,11 @@ a{
     margin-left: 10px;
 }
 
-.app  sidebar nav{
+.app sidebar nav {
     margin-top: 2rem;
 }
 
-.app sidebar ul li{
+.app sidebar ul li {
     margin-bottom: 10px;
     padding: 0.5rem;
     border-radius: 8px;
@@ -90,28 +92,30 @@ a{
     transition: background-color 0.3s ease;
 }
 
-.app sidebar ul li:hover{
+.app sidebar ul li:hover {
     background-color: #2EC76D;
 }
+
 .app sidebar ul li:hover a {
     color: #fff;
 }
+
 .app sidebar ul li:hover svg {
     stroke: #fff;
 }
 
-.app sidebar ul li a{
+.app sidebar ul li a {
     margin-left: 10px;
 }
 
-.active{
+.active {
     margin-top: 38px;
     background-color: #2EC76D;
     color: #fff;
 }
 
 /* Estilos de usuario */
-.user{
+.user {
     margin-top: 1rem;
     color: #fff;
 }
@@ -142,7 +146,8 @@ a{
     align-items: center;
     justify-content: center;
 }
-.logout-button > svg {
+
+.logout-button>svg {
     margin-right: 10px;
 }
 
@@ -150,63 +155,65 @@ a{
     background-color: #2c4844;
 }
 
-.app-container{
+.app-container {
     padding: 1rem;
     background-color: #1F1D2B;
 }
 
 /* Estilos de barra inferior */
-.app-container{
+.app-container {
     padding: 1rem;
     background-color: #1F1D2B;
 }
 
-.app-container .title{
+.app-container .title {
     padding: 1rem;
     background-color: #252836;
     border-radius: 8px;
 }
 
-.app-container .title h1{
+.app-container .title h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
 }
 
-.title{
+.title {
     display: flex;
     gap: 10px;
 }
 
 /* Estilos de forms */
-.app-container .form-container{
+.app-container .form-container {
     margin-top: 1rem;
     padding: 1rem;
     background-color: #252836;
     border-radius: 8px;
 }
 
-.app-container .form-container h3{
+.app-container .form-container h3 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
-.forms{
+.forms {
     display: flex;
 }
 
-.app-container .form-container .forms .edit_producto{
+.app-container .form-container .forms .edit_producto {
     margin-left: 2rem;
 }
-.forms .form{
+
+.forms .form {
     width: 100%;
     max-width: 600px;
     padding: 20px;
     background-color: #1F1D2B;
     border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .form-title {
     margin-bottom: 20px;
     text-align: center;
@@ -221,7 +228,8 @@ a{
     text-align: center;
 }
 
-.product-name, .product-total {
+.product-name,
+.product-total {
     color: white;
     font-size: 1.2rem;
     padding: 5px;
@@ -229,7 +237,7 @@ a{
 }
 
 .frame-img {
-    margin: 15px ;
+    margin: 15px;
     border-radius: 20px;
     width: 150px;
     height: 150px;
@@ -254,31 +262,31 @@ a{
 }
 
 /* Estilos tittle 2 */
-.cont-pago{
+.cont-pago {
     margin-top: 15px;
     color: white;
     background-color: #1F1D2B;
 }
 
-.cont-pago .title-2{
+.cont-pago .title-2 {
     padding: 1rem;
     background-color: #252836;
     border-radius: 8px;
 }
 
-.cont-pago .title-2 h1{
+.cont-pago .title-2 h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
 }
 
-.title-2{
+.title-2 {
     display: flex;
     gap: 10px;
 }
 
 /* Estilos de forms */
-.form-container2{
+.form-container2 {
     margin-top: 1rem;
     padding: 1rem;
     background-color: #252836;
@@ -286,20 +294,22 @@ a{
 }
 
 /* Estilos de método de pago*/
-.txt-trans{
+.txt-trans {
     font-size: 1.5rem;
 }
 
-.txt-trans{
+.txt-trans {
     display: flex;
     gap: 10px;
 }
 
-.txt-banco , .txt-compra , .btn-pagar{
+.txt-banco,
+.txt-compra,
+.btn-pagar {
     margin-top: 10px;
 }
 
-.txt-compra{
+.txt-compra {
     text-align: center;
     color: #ffffff38;
 }
@@ -314,21 +324,24 @@ a{
     border: 2px solid #252836;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .btn-pago:hover {
+}
+
+.btn-pago:hover {
     background-color: #2ec76e49;
     color: #fff;
-  }
+}
 
-  /* Estilos de tabla */
-  table {
+/* Estilos de tabla */
+table {
     border-collapse: collapse;
     width: 218%;
     border-radius: 10px;
-  }
-  
-  th, td {
+}
+
+th,
+td {
     border: 1px solid #dddddd14;
     padding: 8px;
-  }
+}
+
+/* Estilo para el botón de confirmación */

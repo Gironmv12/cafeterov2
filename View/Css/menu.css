@@ -220,6 +220,20 @@ input:hover {
     background-color: #A9957D;
 }
 
+.sidebar .opciones li {
+    position: relative;
+}
+
+.sidebar .opciones li[data-tooltip]:hover:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 100%;
+    margin-left: 10px;
+    padding: 5px 8px;
+    background-color: #A9957D;
+    color: white;
+    border-radius: 4px;
+}
 .sidebar .opciones li a.activo {
     background-color: #A9957D;
     color: #fff;
@@ -426,7 +440,7 @@ input:hover {
     transition: border-color 0.3s ease;
 }
 
-.login{
+.login {
     margin-top: 300%;
 }
 
@@ -446,7 +460,9 @@ input:hover {
     margin-top: 10px;
     content: url('../svg/arrow-right-on-rectangle.svg');
     display: inline-block;
-    margin-left: 45px;
+    background-color: #29B864;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 
@@ -573,14 +589,16 @@ input:hover {
     color: #828283;
 }
 
-.total-compra-, #total-compra {
+.total-compra-,
+#total-compra {
     display: inline-block;
     font-size: 14px;
     color: white;
     margin-right: 55%;
 }
 
-.total-subtotal-, #total-subtotal {
+.total-subtotal-,
+#total-subtotal {
     display: inline-block;
     font-size: 14px;
     color: white;
@@ -592,19 +610,19 @@ input:hover {
     margin-right: 54px;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .total-iva::before {
+}
+
+.total-iva::before {
     content: "IVA 8%";
-  }
-  
+}
+
 #hr {
     border: none;
     border-top: 1px solid #747377;
     margin: 13px 13px;
 }
 
-.boton-minimalista{
+.boton-minimalista {
     font-family: 'Subjectivity-Regular';
     margin-left: -9px;
     margin-top: 35px;
@@ -618,7 +636,7 @@ input:hover {
     align-items: center;
 }
 
-.boton-estilos svg{
+.boton-estilos svg {
     display: flex;
     margin-top: -26px;
     margin-left: 67%;
@@ -629,11 +647,11 @@ input:hover {
 }
 
 /* Estilos imagen carrito */
-.productos-container{
+.productos-container {
     margin-top: 110px;
 }
 
-.productos-container p{
+.productos-container p {
     text-align: center;
     margin-top: -50px;
     font-size: 14px;
@@ -641,13 +659,13 @@ input:hover {
 }
 
 /* Estilos de boton y contador */
-.cantidad-producto{
+.cantidad-producto {
     padding-top: 4px;
     margin-left: -55px;
     color: white;
 }
 
-.producto-cont{
+.producto-cont {
     margin-left: 30px;
     margin-top: -30px;
     gap: 15px;
@@ -665,15 +683,15 @@ input:hover {
     margin: 0;
     outline: none;
     transition: color 0.3s;
-  }
-  
-  .btn-eliminar:hover {
+}
+
+.btn-eliminar:hover {
     color: #2EC76D;
-  }
+}
 
 /* Esilos de texto en card */
-  .text-check{
+.text-check {
     text-align: center;
     color: #999;
     font-size: 15px;
-  }
+}

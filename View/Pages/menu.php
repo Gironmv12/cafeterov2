@@ -71,7 +71,7 @@ if (!isset($_SESSION['carrito'])) {
             <div class="opciones">
                 <ul>
                     <!--Inicio-->
-                    <li>
+                    <li data-tooltip="Inicio">
                         <a class="icon" href="../../index.php">
                             <svg width="25" height="25" viewBox="0 0 28 26" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -85,7 +85,7 @@ if (!isset($_SESSION['carrito'])) {
                         </a>
                     </li>
                     <!--Menu-->
-                    <li>
+                    <li data-tooltip="Menu">
                         <a class="icon" href="menu.php">
                             <svg width="25" height="25" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +98,7 @@ if (!isset($_SESSION['carrito'])) {
 
                     <?php if(isset($_SESSION['idRol']) && ($_SESSION['idRol'] == 2 || $_SESSION['idRol'] == 1)): ?>
                         <!--Mis compras-->
-                        <li>
+                        <li data-tooltip="Mis compras">
                             <a class="icon" href="mis_compras.php">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
                                 width="25" height="25">
@@ -113,7 +113,7 @@ if (!isset($_SESSION['carrito'])) {
                     <?php endif; ?>
                     
                     <!--Reseñas-->
-                    <li>
+                    <li data-tooltip="Reseñas">
                         <a class="icon" href="reseñas.php">
                             <svg width="25" height="25" viewBox="0 0 28 26" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +127,7 @@ if (!isset($_SESSION['carrito'])) {
                         </a>
                     </li>
                     <!--Contacto-->
-                    <li>
+                    <li data-tooltip="Contacto">
                         <a class="icon" href="contacto.php">
                             <svg width="25" height="25" viewBox="0 0 22 27" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -140,7 +140,7 @@ if (!isset($_SESSION['carrito'])) {
 
                     <?php if(isset($_SESSION['idRol']) && $_SESSION['idRol'] == 1):?>
                     <!--Administrador Catalogo-->
-                    <li>
+                    <li data-tooltip="Administrar Productos">
                         <a class="icon" href="admin_productos.php">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="25"
                                 height="25">
@@ -152,7 +152,7 @@ if (!isset($_SESSION['carrito'])) {
                         </a>
                     </li>
                     <!--Administrador Usuarios-->
-                    <li>
+                    <li data-tooltip="Administrar Usuarios">
                         <a class="icon" href="admin_usuarios.php">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="25"
                                 height="25">
@@ -166,7 +166,7 @@ if (!isset($_SESSION['carrito'])) {
                         </a>
                     </li>
                     <!--Administrador Pedidos-->
-                    <li>
+                    <li data-tooltip="Administrar Pedidos">
                         <a class="icon" href="modulo_pedidos.php">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="25"
                                 height="25">

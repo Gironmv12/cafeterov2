@@ -215,7 +215,7 @@ tr:nth-child(even) {
 }
 
 .admin-title {
-    margin-top: 140%;
+    margin-top: 131%;
     font-size: 14px;
     color: #fff;
     margin-bottom: 10px;
@@ -247,7 +247,6 @@ tr:nth-child(even) {
 .logout-button:hover {
     background-color: #2c4844;
 }
-
 html::-webkit-scrollbar {
     height: 10px;
     width: 10px;
