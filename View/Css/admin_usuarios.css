@@ -127,6 +127,7 @@ a{
 .app-container .form-container .forms .edit_producto{
     margin-left: 2rem;
 }
+
 .forms .form{
     width: 100%;
     max-width: 600px;
@@ -181,6 +182,7 @@ a{
     width: 100%;
     max-width: 600px;
     border-radius: 4px;
+    margin-left: 7px;
 }
 
 

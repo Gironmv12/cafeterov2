@@ -5,7 +5,7 @@ $metodos = new Compras();
 $compras = $metodos->obtenerCompras();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">

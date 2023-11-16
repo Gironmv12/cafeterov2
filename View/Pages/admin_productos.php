@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">

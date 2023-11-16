@@ -1,129 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 /* Estilos para la fuente personalizada */
 @font-face {
     font-family: 'Subjectivity-Regular';
     src: url('../Fonts/Subjectivity-Regular.otf') format('truetype');
 }
 
-body {
-    font-family: 'Subjectivity-Regular';
-    background-color: #1F1D2B;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.img-fondo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/img-fondo.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+html {
+    scroll-behavior: smooth;
 }
 
-.contenido {
-    position: relative;
-    z-index: 1;
+html::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: #252836;
+}
+html::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #2EC76D;
 }
 
 /* Maquetado */
-.parent {
+.app {
     display: grid;
-    grid-template-columns: .4fr 1fr .4fr;
-    grid-template-rows: .4fr 2fr .4fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 1fr;
 }
 
-.div1 {
-    grid-area: 2 / 2 / 3 / 3;
-    border-radius: 20px;
-    background-color: #25283669;
+ul {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
 }
 
-.div1 p {
-    color: white;
-    font-size: 17px;
-    margin-left: 15px;
+.app {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 1fr;
 }
 
-.frame {
-    margin-right: 30px;
-    margin-left: 30px;
-    color: white;
-    height: 90px;
-    background-color: #8282831e;
-    padding-top: 5px;
+.app sidebar{
+    background-color: #252836;
+    color: #fff;
+    padding: 1rem;
+    width:  100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
-.frame p {
-    font-size: 13px;
-}
-
-#texto-t {
-    font-size: 13px;
-    color: #828283;
-}
-
-.contenido p {
-    margin-left: 30px;
-    color: white;
-}
-
-.div2 {
-    margin-top: 15%;
-    grid-area: 1 / 2 / 2 / 3;
-}
-
-.div2 p {
-    text-align: center;
-    font-size: 18px;
-    color: white;
-}
-
-/* Estilos de boton */
-.boton-minimalista {
-    font-family: 'Subjectivity-Regular';
-    margin-left: 53%;
-    margin-top: 90px;
-    background-color: #2ec76ec5;
-    border: 1px solid white;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 124px;
-    font-size: 13px;
+.app sidebar .logo{
     display: flex;
     align-items: center;
-    cursor: pointer;
+    justify-content: center;
 }
 
-.boton-minimalista svg {
-    margin-left: 5px;
-    fill: currentColor;
-}
-
-.boton-minimalista:hover {
-    background-color: #29b8659f;
-}
-
-/* Estilos de botón - regresar */
-.btn-regresar {
+.app sidebar .logo h4{
     font-family: 'Subjectivity-Regular';
-    margin-left: 30px;
-    margin-right: 75%;
-    margin-top: -35px;
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 10px 60px;
-    font-size: 13px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.app  sidebar nav{
+    margin-top: 2rem;
+}
+
+.app sidebar ul li{
+    margin-bottom: 10px;
+    padding: 0.5rem;
+    border-radius: 8px;
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: background-color 0.3s ease;
+}
 
-    cursor: pointer;
+.app sidebar ul li:hover{
+    background-color: #2EC76D;
+}
+.app sidebar ul li:hover a {
+    color: #fff;
+}
+.app sidebar ul li:hover svg {
+    stroke: #fff;
+}
+
+.app sidebar ul li a{
+    margin-left: 10px;
+}
+
+.active{
+    margin-top: 38px;
+    background-color: #2EC76D;
+    color: #fff;
+}
+
+/* Estilos de usuario */
+.user{
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.admin-title {
+    margin-top: 175%;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.user-name {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.logout-button {
+    display: flex;
+    color: #fff;
+    background-color: #2EC76D;
+    padding: 10px;
+    border-radius: 4px;
     text-decoration: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.logout-button > svg {
+    margin-right: 10px;
 }
 
-.btn-regresar:hover {
-    background-color: #1f1d2b36;
+.logout-button:hover {
+    background-color: #2c4844;
 }
+
+.app-container{
+    padding: 1rem;
+    background-color: #1F1D2B;
+}
+
+/* Estilos de barra inferior */
+.app-container{
+    padding: 1rem;
+    background-color: #1F1D2B;
+}
+
+.app-container .title{
+    padding: 1rem;
+    background-color: #252836;
+    border-radius: 8px;
+}
+
+.app-container .title h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.title{
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos de forms */
+.app-container .form-container{
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #252836;
+    border-radius: 8px;
+}
+
+.app-container .form-container h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.forms{
+    display: flex;
+}
+
+.app-container .form-container .forms .edit_producto{
+    margin-left: 2rem;
+}
+.forms .form{
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #1F1D2B;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.form-title {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Estilos dentro del Form (Contenido de compra) */
+.detalleCompra {
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.product-name, .product-total {
+    color: white;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.frame-img {
+    margin: 15px ;
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    background-color: #1F1D2B;
+}
+
+.cont-img {
+    background-color: #25283658;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.img-producto {
+    margin-right: 10px;
+}
+
+.detalle {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* Estilos tittle 2 */
+.cont-pago{
+    margin-top: 15px;
+    color: white;
+    background-color: #1F1D2B;
+}
+
+.cont-pago .title-2{
+    padding: 1rem;
+    background-color: #252836;
+    border-radius: 8px;
+}
+
+.cont-pago .title-2 h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.title-2{
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos de forms */
+.form-container2{
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #252836;
+    border-radius: 8px;
+}
+
+/* Estilos de método de pago*/
+.txt-trans{
+    font-size: 1.5rem;
+}
+
+.txt-trans{
+    display: flex;
+    gap: 10px;
+}
+
+.txt-banco , .txt-compra , .btn-pagar{
+    margin-top: 10px;
+}
+
+.txt-compra{
+    text-align: center;
+    color: #ffffff38;
+}
+
+/* Estilos de boton de salida */
+.btn-pago {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #2EC76D;
+    color: #fff;
+    border: 2px solid #252836;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-pago:hover {
+    background-color: #2ec76e49;
+    color: #fff;
+  }
+
+  /* Estilos de tabla */
+  table {
+    border-collapse: collapse;
+    width: 218%;
+    border-radius: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd14;
+    padding: 8px;
+  }

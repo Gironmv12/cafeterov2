@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Link de heroicons -->
-    <link href="https://cdn.jsdelivr.net/npm/heroicons@1.0.1/dist/heroicons.min.css" rel="stylesheet">
 
     <!-- icono de la página -->
     <link rel="icon" href="../images/icono.png" type="png">

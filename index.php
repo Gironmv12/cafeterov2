@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Link de heroicons -->
-    <link href="https://cdn.jsdelivr.net/npm/heroicons@1.0.1/dist/heroicons.min.css" rel="stylesheet">
 
     <!-- icono de la página -->
     <link rel="icon" href="./View/images/icono.png" type="png">
@@ -30,7 +27,7 @@
         <ul class="nav-list">   
             <li><a href="./View/Pages/menu.php">Menú</a></li>
             <li><a href="./View/Pages/reseñas.php">Reseñas</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="./View/Pages/contacto.php">Contacto</a></li>
         </ul>
     </nav>
 
@@ -47,7 +44,7 @@
 
     <!-- Icono1 parte inferior -->
     <div class="icon1">
-        <a href="#">
+        <a href="./View/Pages/contacto.php">
             <svg width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M26.25 10C26.25 13.4518 23.4518 16.25 20 16.25C16.5482 16.25 13.75 13.4518 13.75 10C13.75 6.54822 16.5482 3.75 20 3.75C23.4518 3.75 26.25 6.54822 26.25 10Z"
@@ -61,7 +58,7 @@
 
     <!-- Icono 2 parte inferior -->
     <div class="icon2">
-        <a href="#">
+        <a href="./View/Pages/login.php">
             <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M15 21.25L18.75 25L25 16.25M35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20C5 11.7157 11.7157 5 20 5C28.2843 5 35 11.7157 35 20Z"
@@ -72,7 +69,7 @@
 
     <!-- Icono 3 parte inferior -->
     <div class="icon3">
-        <a href="#">
+        <a href="./View/Pages/reseñas.php">
             <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M35 13.75C35 9.60786 31.5022 6.25 27.1875 6.25C23.9615 6.25 21.1921 8.12713 20 10.8057C18.8079 8.12713 16.0385 6.25 12.8125 6.25C8.49778 6.25 5 9.60786 5 13.75C5 25.7843 20 33.75 20 33.75C20 33.75 35 25.7843 35 13.75Z"

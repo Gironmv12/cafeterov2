@@ -107,7 +107,6 @@ a{
     color: #fff;
 }
 
-
 .app-container .form-container{
     margin-top: 1rem;
     padding: 1rem;
@@ -214,7 +213,7 @@ tr:nth-child(even) {
 }
 
 .admin-title {
-    margin-top: 140%;
+    margin-top: 131%;
     font-size: 14px;
     color: #fff;
     margin-bottom: 10px;
