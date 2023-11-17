@@ -9,7 +9,7 @@ Siga estos pasos para instalar y comenzar con CaféTero:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/cafeterov2.git
+   git clone https://github.com/Gironmv12/cafeterov2.git
 2. Navega al directorio del proyecto
    ```bash
    cd cafeterov2
