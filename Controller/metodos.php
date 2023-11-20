@@ -32,28 +32,31 @@ class Usuarios{
     public function registrarUsuarios($nombre, $apellido, $correo, $clave){
         try{
             $pdo = $this->db->connect();
-
+    
             // Verificar si el correo ya existe en la base de datos
             $sql_check = "SELECT COUNT(*) FROM usuarios WHERE correo = :correo";
             $stmt_check = $pdo->prepare($sql_check);
             $stmt_check->bindParam(':correo', $correo);
             $stmt_check->execute();
-
+    
             $count = $stmt_check->fetchColumn();
-
+    
             if ($count > 0) {
                 // El correo ya está en uso, no permitir el registro
                 return false;
             }
-
+    
+            // Encriptar la contraseña
+            $clave_encriptada = password_hash($clave, PASSWORD_DEFAULT);
+    
             // Si el correo no existe, proceder con la inserción
             $sql = "INSERT INTO usuarios (nombre, apellido, correo, clave, idRol) VALUES (:nombre, :apellido, :correo, :clave, 2)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellido', $apellido);
             $stmt->bindParam(':correo', $correo);
-            $stmt->bindParam(':clave', $clave);
-
+            $stmt->bindParam(':clave', $clave_encriptada);
+    
             // Ejecutamos la consulta
             $stmt->execute();
             // Cerramos la conexión
@@ -63,6 +66,7 @@ class Usuarios{
             return false; // Error en el registro
         }
     }
+
 
     /**
      * Inicia sesión de usuario.
@@ -74,11 +78,10 @@ class Usuarios{
     public function iniciarSesion($correo, $clave){
         try{
             $pdo = $this->db->connect();
-            // Preparar la consulta SQL para autenticar al usuario
-            $sql = "SELECT * FROM usuarios WHERE correo = :correo AND clave = :clave";
+            // Preparar la consulta SQL para obtener al usuario
+            $sql = "SELECT * FROM usuarios WHERE correo = :correo";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':correo', $correo);
-            $stmt->bindParam(':clave', $clave);
 
             // Ejecutar la consulta
             $stmt->execute();
@@ -88,13 +91,15 @@ class Usuarios{
             // Cerrar la conexión
             $pdo = null;
 
-            // Iniciar la sesión y almacenar el idRol en la sesión
-            if ($usuario) {
+            // Verificar la contraseña
+            if ($usuario && password_verify($clave, $usuario['clave'])) {
+                // Iniciar la sesión y almacenar el idRol en la sesión
                 session_start();
                 $_SESSION['idRol'] = $usuario['idRol'];
+                return $usuario; // Devolver los datos del usuario si la autenticación es exitosa
+            } else {
+                return false; // Autenticación fallida
             }
-
-            return $usuario; // Devolver los datos del usuario si la autenticación es exitosa
 
         }catch(PDOException $e){
             return false;
