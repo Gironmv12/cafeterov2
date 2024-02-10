@@ -457,7 +457,6 @@ input:hover {
 }
 
 .menu-desplegable a::before {
-    margin-top: 10px;
     content: url('../svg/arrow-right-on-rectangle.svg');
     display: inline-block;
     background-color: #29B864;
